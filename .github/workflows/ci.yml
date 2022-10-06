@@ -19,12 +19,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    # Setup Langs and Tools
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.10'
-
     # Create and Activate Conda Env
     - uses: conda-incubator/setup-miniconda@v2
       with:
