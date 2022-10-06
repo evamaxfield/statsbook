@@ -3,7 +3,14 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: content/markdown
-- file: content/notebooks
-- file: content/markdown-notebooks
+parts:
+- caption: Admin/Dev Notes
+  chapters:
+  - file: content/_admin/markdown
+  - file: content/_admin/notebooks
+  - file: content/_admin/markdown-notebooks
+  - file: content/_admin/example-py.ipynb
+  - file: content/_admin/example-r.ipynb
+- caption: Getting Started
+  chapters:
+  - file: content/0-setup/content-structure-and-setup

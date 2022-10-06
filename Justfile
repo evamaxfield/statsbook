@@ -6,9 +6,9 @@ default:
 clean:
 	rm -fr _build
 
-# install with all deps
-install:
-    pip install -r {{justfile_directory()}}/requirements.txt
+# create conda env and install all deps
+setup name="statsbook":
+    conda env create -n {{name}} --file {{justfile_directory()}}/environment.yml
 
 # build book
 build:
