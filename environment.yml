@@ -1,20 +1,27 @@
 channels:
   - conda-forge
+  - bioconda
 dependencies:
   # Python
-  - pip>=22.2
-  - python>=3.10
-  - setuptools>=65
-  - wheel>=0.37.1
+  - pip=22.3.1
+  - python=3.11.0
+  - setuptools=65.5.1
+  - wheel=0.38.4
   # R
-  - r-base>=4
-  - r-essentials>=3
+  - r-base=4.2.2
+  - r-essentials=4.2
+  # Stats Libs
+  - r-mixomics=6.3.2
+  - r-rvaidememoire=0.9_81_2
+  - r-xnomial=1.0.4
   # Extras
-  - just
+  - just=1.8.0
   - pip:
+    # Book
     - jupyter-book==0.13.1
-    - matplotlib
-    - numpy
-    - statsmodels
-    - jupyterlab
-    - scipy
+    - jupyterlab==3.5.0
+    # Stats Libs
+    - numpy==1.23.4
+    - pandas==1.5.1
+    - scipy==1.9.3
+    - statsmodels==0.13.5
