@@ -4,26 +4,26 @@ channels:
   - defaults
 dependencies:
   # Python
-  - conda-forge::pip=22.3.1
-  - conda-forge::python=3.11.0
-  - conda-forge::setuptools=65.5.1
-  - conda-forge::wheel=0.38.4
+  - conda-forge::pip>=22 
+  - conda-forge::python>=3.11
+  - conda-forge::setuptools>=65
+  - conda-forge::wheel>=0.38
   # R
-  - conda-forge::r-base=4.2.2
-  - conda-forge::r-essentials=4.2
+  - conda-forge::r-base>=4.2
+  - conda-forge::r-essentials>=4.2
   # Stats Libs
-  - conda-forge::r-mixomics=6.3.2
-  # - bioconda::bioconductor-mixomics=6.22.0
-  - conda-forge::r-rvaidememoire=0.9_81_2
-  - conda-forge::r-xnomial=1.0.4
+  # - conda-forge::r-mixomics>=6
+  - bioconda::bioconductor-mixomics>=6
+  - conda-forge::r-rvaidememoire>=0.9_81_2
+  - conda-forge::r-xnomial>=1
   # Extras
-  - conda-forge::just=1.8.0
+  - conda-forge::just>=1.8
   - pip:
     # Book
     - jupyter-book==0.13.1
-    - jupyterlab==3.5.0
+    - jupyterlab>=3.5
     # Stats Libs
-    - numpy==1.23.4
-    - pandas==1.5.1
-    - scipy==1.9.3
-    - statsmodels==0.13.5
+    - numpy>=1
+    - pandas>=1
+    - scipy>=1
+    - statsmodels>=0.13
