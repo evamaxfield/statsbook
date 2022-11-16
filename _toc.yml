@@ -13,4 +13,12 @@ parts:
   - file: content/_admin/example-r.ipynb
 - caption: Getting Started
   chapters:
-  - file: content/0-setup/content-structure-and-setup
+  - file: content/00-setup/content-structure-and-setup.md
+- caption: One Sample Tests of Proportion
+  chapters:
+  - file: content/01-proportions/one-sample-tests-r.ipynb
+  - file: content/01-proportions/one-sample-tests-py.ipynb
+  - file: content/01-proportions/one-sample-post-hoc-tests-py.ipynb
+- caption: Two Sample Tests of Proportion
+  chapters:
+  - file: content/01-proportions/two-sample-tests-py.ipynb
