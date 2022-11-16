@@ -1,21 +1,22 @@
 channels:
   - conda-forge
   - bioconda
+  - defaults
 dependencies:
   # Python
-  - pip=22.3.1
-  - python=3.11.0
-  - setuptools=65.5.1
-  - wheel=0.38.4
+  - conda-forge::pip=22.3.1
+  - conda-forge::python=3.11.0
+  - conda-forge::setuptools=65.5.1
+  - conda-forge::wheel=0.38.4
   # R
-  - r-base=4.2.2
-  - r-essentials=4.2
+  - conda-forge::r-base=4.2.2
+  - conda-forge::r-essentials=4.2
   # Stats Libs
-  - r-mixomics=6.3.2
-  - r-rvaidememoire=0.9_81_2
-  - r-xnomial=1.0.4
+  - bioconda::r-mixomics=6.3.2
+  - conda-forge::r-rvaidememoire=0.9_81_2
+  - conda-forge::r-xnomial=1.0.4
   # Extras
-  - just=1.8.0
+  - conda-forge::just=1.8.0
   - pip:
     # Book
     - jupyter-book==0.13.1
