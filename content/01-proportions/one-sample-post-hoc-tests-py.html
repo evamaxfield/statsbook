@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Content with notebooks &#8212; Statistical Analysis and Reporting</title>
+    <title>Post Hoc Analysis for One Sample Tests of Proportion - Python &#8212; Statistical Analysis and Reporting</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,12 +50,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Notebooks with MyST Markdown" href="markdown-notebooks.html" />
-    <link rel="prev" title="Markdown Files" href="markdown.html" />
+    <link rel="next" title="Two Sample Tests of Proportion - Python" href="two-sample-tests-py.html" />
+    <link rel="prev" title="One Sample Tests of Proportion - Python" href="one-sample-tests-py.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -120,29 +118,29 @@ const thebe_selector_output = ".output, .cell_output"
   Admin/Dev Notes
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="markdown.html">
+  <a class="reference internal" href="../_admin/markdown.html">
    Markdown Files
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../_admin/notebooks.html">
    Content with notebooks
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="markdown-notebooks.html">
+  <a class="reference internal" href="../_admin/markdown-notebooks.html">
    Notebooks with MyST Markdown
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="example-py.html">
+  <a class="reference internal" href="../_admin/example-py.html">
    Example of Fleiss Kappa in Python
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="example-r.html">
+  <a class="reference internal" href="../_admin/example-r.html">
    Example of One Sample Binomial Test in R
   </a>
  </li>
@@ -164,19 +162,19 @@ const thebe_selector_output = ".output, .cell_output"
   One Sample Tests of Proportion
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../01-proportions/one-sample-tests-r.html">
+  <a class="reference internal" href="one-sample-tests-r.html">
    One Sample Tests of Proportion - R
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../01-proportions/one-sample-tests-py.html">
+  <a class="reference internal" href="one-sample-tests-py.html">
    One Sample Tests of Proportion - Python
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../01-proportions/one-sample-post-hoc-tests-py.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Post Hoc Analysis for One Sample Tests of Proportion - Python
   </a>
  </li>
@@ -188,7 +186,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../01-proportions/two-sample-tests-py.html">
+  <a class="reference internal" href="two-sample-tests-py.html">
    Two Sample Tests of Proportion - Python
   </a>
  </li>
@@ -251,7 +249,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/evamaxfield/statsbook/main?urlpath=lab/tree/content/_admin/notebooks.ipynb"
+        <a href="https://mybinder.org/v2/gh/evamaxfield/statsbook/main?urlpath=lab/tree/content/01-proportions/one-sample-post-hoc-tests-py.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -311,7 +309,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/evamaxfield/statsbook/issues/new?title=Issue%20on%20page%20%2Fcontent/_admin/notebooks.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/evamaxfield/statsbook/issues/new?title=Issue%20on%20page%20%2Fcontent/01-proportions/one-sample-post-hoc-tests-py.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -339,7 +337,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/content/_admin/notebooks.ipynb"
+        <a href="../../_sources/content/01-proportions/one-sample-post-hoc-tests-py.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -399,18 +397,8 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#markdown-notebooks">
-   Markdown + notebooks
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#myst-markdown">
-   MyST markdown
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#code-blocks-and-outputs">
-   Code blocks and outputs
+  <a class="reference internal nav-link" href="#binomial-tests">
+   Binomial Tests
   </a>
  </li>
 </ul>
@@ -422,7 +410,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Content with notebooks</h1>
+                <h1>Post Hoc Analysis for One Sample Tests of Proportion - Python</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -433,18 +421,8 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#markdown-notebooks">
-   Markdown + notebooks
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#myst-markdown">
-   MyST markdown
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#code-blocks-and-outputs">
-   Code blocks and outputs
+  <a class="reference internal nav-link" href="#binomial-tests">
+   Binomial Tests
   </a>
  </li>
 </ul>
@@ -457,87 +435,194 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="content-with-notebooks">
-<h1>Content with notebooks<a class="headerlink" href="#content-with-notebooks" title="Permalink to this headline">#</a></h1>
-<p>You can also create content with Jupyter Notebooks. This means that you can include
-code blocks and their outputs in your book.</p>
-<section id="markdown-notebooks">
-<h2>Markdown + notebooks<a class="headerlink" href="#markdown-notebooks" title="Permalink to this headline">#</a></h2>
-<p>As it is markdown, you can embed images, HTML, etc into your posts!</p>
-<p><img alt="" src="https://myst-parser.readthedocs.io/en/latest/_static/logo-wide.svg" /></p>
-<p>You can also <span class="math notranslate nohighlight">\(add_{math}\)</span> and</p>
-<div class="math notranslate nohighlight">
-\[
-math^{blocks}
-\]</div>
-<p>or</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{aligned}
-\mbox{mean} la_{tex} \\ \\
-math blocks
-\end{aligned}
-\end{split}\]</div>
-<p>But make sure you $Escape $your $dollar signs $you want to keep!</p>
-</section>
-<section id="myst-markdown">
-<h2>MyST markdown<a class="headerlink" href="#myst-markdown" title="Permalink to this headline">#</a></h2>
-<p>MyST markdown works in Jupyter Notebooks as well. For more information about MyST markdown, check
-out <a class="reference external" href="https://jupyterbook.org/content/myst.html">the MyST guide in Jupyter Book</a>,
-or see <a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/">the MyST markdown documentation</a>.</p>
-</section>
-<section id="code-blocks-and-outputs">
-<h2>Code blocks and outputs<a class="headerlink" href="#code-blocks-and-outputs" title="Permalink to this headline">#</a></h2>
-<p>Jupyter Book will also embed your code blocks and output in your book.
-For example, here’s some sample Matplotlib code:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="post-hoc-analysis-for-one-sample-tests-of-proportion-python">
+<h1>Post Hoc Analysis for One Sample Tests of Proportion - Python<a class="headerlink" href="#post-hoc-analysis-for-one-sample-tests-of-proportion-python" title="Permalink to this headline">#</a></h1>
+<section id="binomial-tests">
+<h2>Binomial Tests<a class="headerlink" href="#binomial-tests" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>Samples:</strong> <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
+<li><p><strong>Response Categories:</strong> <code class="docutils literal notranslate"><span class="pre">&gt;=2</span></code></p></li>
+<li><p><strong>Omnibus Test:</strong> Multinomial Test</p></li>
+<li><p><strong>Contrast Test:</strong> Binomial Test</p></li>
+<li><p><strong>Reporting:</strong> “Pairwise comparisons using exact binomial tests, corrected with Holm’s sequential Bonferroni procedure, indicated that the proportions of ‘x’ and ‘z’ and ‘y’ and ‘z’ were statistically significantly different (p &lt; .05), but that the proportions of ‘x’ and ‘y’ were not.”</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span><span class="p">,</span> <span class="n">cycler</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/0F0LBs_multinomial.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span><span class="p">,</span> <span class="n">cycler</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>S</th>
+      <th>Y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>z</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>z</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>z</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>z</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>z</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>z</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>z</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>z</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>z</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11</td>
+      <td>z</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13</td>
+      <td>z</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>14</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>15</td>
+      <td>z</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>16</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>17</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>18</td>
+      <td>z</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>19</td>
+      <td>z</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>20</td>
+      <td>z</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># counts = df[&quot;Y&quot;].value_counts()</span>
+<span class="c1"># x = binomtest(counts[&quot;x&quot;], counts.sum(), p=1/len(counts))</span>
+<span class="c1"># x</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fixing random state for reproducibility</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">19680801</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from scipy.stats import binomtest</span>
 
-<span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="n">ii</span> <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
-<span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">coolwarm</span>
-<span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.prop_cycle&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cycler</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">)))</span>
-
-
-<span class="kn">from</span> <span class="nn">matplotlib.lines</span> <span class="kn">import</span> <span class="n">Line2D</span>
-<span class="n">custom_lines</span> <span class="o">=</span> <span class="p">[</span><span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">(</span><span class="mf">0.</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span>
-                <span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">(</span><span class="mf">.5</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span>
-                <span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">(</span><span class="mf">1.</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">)]</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">lines</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">custom_lines</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Cold&#39;</span><span class="p">,</span> <span class="s1">&#39;Medium&#39;</span><span class="p">,</span> <span class="s1">&#39;Hot&#39;</span><span class="p">]);</span>
+<span class="c1"># binom_results = [</span>
+<span class="c1">#     binomtest(counts[level], counts.sum(), p=1/len(counts))</span>
+<span class="c1">#     for level in counts.index</span>
+<span class="c1"># ]</span>
+<span class="c1"># binom_results</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>There is a lot more that you can do with outputs (such as including interactive outputs)
-with your book. For more information about this, see <a class="reference external" href="https://jupyterbook.org">the Jupyter Book documentation</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># binom_p_values = [r.pvalue for r in binom_results]</span>
+<span class="c1"># binom_p_values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from statsmodels.stats.multitest import multipletests</span>
+
+<span class="c1"># reject, pvals_corrected, _, _ = multipletests(binom_p_values, method=&quot;holm&quot;)</span>
+<span class="c1"># reject, pvals_corrected</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -554,7 +639,7 @@ with your book. For more information about this, see <a class="reference externa
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/_admin"
+            path: "./content/01-proportions"
         },
         predefinedOutput: true
     }
@@ -568,17 +653,17 @@ with your book. For more information about this, see <a class="reference externa
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="markdown.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="one-sample-tests-py.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Markdown Files</p>
+            <p class="prev-next-title">One Sample Tests of Proportion - Python</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="markdown-notebooks.html" title="next page">
+    <a class='right-next' id="next-link" href="two-sample-tests-py.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Notebooks with MyST Markdown</p>
+        <p class="prev-next-title">Two Sample Tests of Proportion - Python</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
