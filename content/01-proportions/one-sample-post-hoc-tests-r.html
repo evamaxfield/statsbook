@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Post Hoc Analysis for One Sample Tests of Proportion - Python &#8212; Statistical Analysis and Reporting</title>
+    <title>One Sample Post Hoc Tests &#8212; Statistical Analysis and Reporting</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -203,7 +203,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/evamaxfield/statsbook/main?urlpath=lab/tree/content/01-proportions/one-sample-post-hoc-tests-py.ipynb"
+        <a href="https://mybinder.org/v2/gh/evamaxfield/statsbook/main?urlpath=lab/tree/content/01-proportions/one-sample-post-hoc-tests-r.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -263,7 +263,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/evamaxfield/statsbook/issues/new?title=Issue%20on%20page%20%2Fcontent/01-proportions/one-sample-post-hoc-tests-py.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/evamaxfield/statsbook/issues/new?title=Issue%20on%20page%20%2Fcontent/01-proportions/one-sample-post-hoc-tests-r.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -291,7 +291,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/content/01-proportions/one-sample-post-hoc-tests-py.ipynb"
+        <a href="../../_sources/content/01-proportions/one-sample-post-hoc-tests-r.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -351,8 +351,18 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#binomial-tests">
-   Binomial Tests
+  <a class="reference internal nav-link" href="#post-hoc-test-for-multinomial-test">
+   Post Hoc Test for Multinomial Test
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#post-hoc-test-for-one-sample-pearson-chi-squared-test">
+   Post Hoc Test for One Sample Pearson Chi-Squared Test
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#post-hoc-test-for-multinom">
+   Post Hoc Test for Multinom
   </a>
  </li>
 </ul>
@@ -364,7 +374,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Post Hoc Analysis for One Sample Tests of Proportion - Python</h1>
+                <h1>One Sample Post Hoc Tests</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -375,8 +385,18 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#binomial-tests">
-   Binomial Tests
+  <a class="reference internal nav-link" href="#post-hoc-test-for-multinomial-test">
+   Post Hoc Test for Multinomial Test
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#post-hoc-test-for-one-sample-pearson-chi-squared-test">
+   Post Hoc Test for One Sample Pearson Chi-Squared Test
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#post-hoc-test-for-multinom">
+   Post Hoc Test for Multinom
   </a>
  </li>
 </ul>
@@ -389,193 +409,113 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="post-hoc-analysis-for-one-sample-tests-of-proportion-python">
-<h1>Post Hoc Analysis for One Sample Tests of Proportion - Python<a class="headerlink" href="#post-hoc-analysis-for-one-sample-tests-of-proportion-python" title="Permalink to this headline">#</a></h1>
-<section id="binomial-tests">
-<h2>Binomial Tests<a class="headerlink" href="#binomial-tests" title="Permalink to this headline">#</a></h2>
+  <section id="one-sample-post-hoc-tests">
+<h1>One Sample Post Hoc Tests<a class="headerlink" href="#one-sample-post-hoc-tests" title="Permalink to this headline">#</a></h1>
+<section id="post-hoc-test-for-multinomial-test">
+<h2>Post Hoc Test for Multinomial Test<a class="headerlink" href="#post-hoc-test-for-multinomial-test" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><strong>Samples:</strong> <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
-<li><p><strong>Response Categories:</strong> <code class="docutils literal notranslate"><span class="pre">&gt;=2</span></code></p></li>
-<li><p><strong>Omnibus Test:</strong> Multinomial Test</p></li>
-<li><p><strong>Contrast Test:</strong> Binomial Test</p></li>
+<li><p><strong>Response Categories:</strong> <code class="docutils literal notranslate"><span class="pre">≥2</span></code></p></li>
+<li><p><strong>Omnibus Test(s):</strong> <a class="reference external" href="#multinomial-test">Multinomial Test</a></p></li>
+<li><p><strong>Contrast Test:</strong> <a class="reference external" href="#binomial-test">Binomial Test</a></p></li>
 <li><p><strong>Reporting:</strong> “Pairwise comparisons using exact binomial tests, corrected with Holm’s sequential Bonferroni procedure, indicated that the proportions of ‘x’ and ‘z’ and ‘y’ and ‘z’ were statistically significantly different (p &lt; .05), but that the proportions of ‘x’ and ‘y’ were not.”</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/0F0LBs_multinomial.csv&quot;</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># install.packages(&quot;RVAideMemoire&quot;)</span>
+<span class="c1"># on Ubuntu you may have trouble installing, see: TODO</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">RVAideMemoire</span><span class="p">)</span> <span class="c1"># for multinomial.multcomp</span>
+<span class="nf">multinomial.multcomp</span><span class="p">(</span><span class="n">xt</span><span class="p">,</span> <span class="n">p.method</span><span class="o">=</span><span class="s">&quot;holm&quot;</span><span class="p">)</span> <span class="c1"># xt shows levels</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*** Package RVAideMemoire v 0.9-81-2 ***
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="ow">is</span><span class="o">.</span><span class="n">factor</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="nb">object</span> <span class="s1">&#39;xt&#39;</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="ne">Traceback</span>:
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+<span class="mi">1</span><span class="o">.</span> <span class="n">multinomial</span><span class="o">.</span><span class="n">multcomp</span><span class="p">(</span><span class="n">xt</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;holm&quot;</span><span class="p">)</span>
+<span class="mi">2</span><span class="o">.</span> <span class="ow">is</span><span class="o">.</span><span class="n">factor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="post-hoc-test-for-one-sample-pearson-chi-squared-test">
+<h2>Post Hoc Test for One Sample Pearson Chi-Squared Test<a class="headerlink" href="#post-hoc-test-for-one-sample-pearson-chi-squared-test" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>Samples:</strong> <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
+<li><p><strong>Response Categories:</strong> <code class="docutils literal notranslate"><span class="pre">≥2</span></code></p></li>
+<li><p><strong>Omnibus Test(s):</strong> <a class="reference external" href="#one-sample-pearson-chi-squared-test">One Sample Pearson Chi-Squared Test</a></p></li>
+<li><p><strong>Contrast Test:</strong> <a class="reference external" href="#one-sample-chi-squared-test">Chi-Squared Test</a></p></li>
+<li><p><strong>Reporting:</strong> “Pairwise comparisons using Pearson Chi-Squared tests, corrected with Holm’s sequential Bonferroni procedure, indicated that the proportions of ‘x’ and ‘z’ were statistically significantly different (χ2(1, N=52) = 5.02, p &lt; .05), as were the proportions of ‘y’ and ‘z’ (χ2(1, N=43) = 14.96, p &lt; .001), but that the proportions of ‘x’ and ‘y’ were only marginal (χ2(1, N=25) = 3.24, p = .072).”</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># install.packages(&quot;RVAideMemoire&quot;)</span>
+<span class="c1"># on Ubuntu you may have trouble installing, see: TODO</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">RVAideMemoire</span><span class="p">)</span> <span class="c1"># for chisq.multcomp</span>
+<span class="nf">chisq.multcomp</span><span class="p">(</span><span class="n">xt</span><span class="p">,</span> <span class="n">p.method</span><span class="o">=</span><span class="s">&quot;holm&quot;</span><span class="p">)</span> <span class="c1"># xt shows levels</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Pairwise comparisons using chi-squared tests 
 
-    .dataframe thead th {
-        text-align: right;
-    }
+data:  xt 
+
+   8       17     
+17 0.07186 -      
+35 0.00011 0.02511
+
+P value adjustment method: holm 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># for the Chi-Squared values, use qchisq(1-p, df=1), where p is the pairwise p-value.</span>
+<span class="nf">qchisq</span><span class="p">(</span><span class="m">1-0.07186</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+<span class="nf">qchisq</span><span class="p">(</span><span class="m">1-0.00011</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+<span class="nf">qchisq</span><span class="p">(</span><span class="m">1-0.02511</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">3.24001455110448</div><div class="output text_html">14.9568155823045</div><div class="output text_html">5.01628405548254</div></div>
+</div>
+</section>
+<section id="post-hoc-test-for-multinom">
+<h2>Post Hoc Test for Multinom<a class="headerlink" href="#post-hoc-test-for-multinom" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>Samples:</strong> <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
+<li><p><strong>Response Categories:</strong> <code class="docutils literal notranslate"><span class="pre">≥2</span></code></p></li>
+<li><p><strong>Omnibus Test(s):</strong> <a class="reference external" href="#multinomial-test">Multinomial Test</a>, <a class="reference external" href="#one-sample-pearson-chi-squared-test">One Sample Pearson Chi-Squared Test</a></p></li>
+<li><p><strong>Contrast Test:</strong> <a class="reference external" href="#binomial-test">Binomial Test</a></p></li>
+<li><p><strong>Reporting:</strong> “Three post hoc binomial tests, corrected with Holm’s sequential Bonferroni procedure, indicated that the proportions of ‘y’ and ‘z’ were statistically significantly different from chance (p &lt; .05), but not the proportion of ‘x’. Specifically, the proportion of ‘y’ at 8 was significantly lower than 20, and the proportion of ‘z’ at 35 was significantly higher than 20.”</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># A different kind of post hoc test for one sample. For Y&#39;s response categories (x,y,z), </span>
+<span class="c1"># test each proportion against chance.</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nf">binom.test</span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">Y</span> <span class="o">==</span> <span class="s">&quot;x&quot;</span><span class="p">),</span> <span class="nf">nrow</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="n">p</span><span class="o">=</span><span class="m">1</span><span class="o">/</span><span class="m">3</span><span class="p">)</span> <span class="c1"># proportion of &quot;x&quot; rows</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nf">binom.test</span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">Y</span> <span class="o">==</span> <span class="s">&quot;y&quot;</span><span class="p">),</span> <span class="nf">nrow</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="n">p</span><span class="o">=</span><span class="m">1</span><span class="o">/</span><span class="m">3</span><span class="p">)</span> <span class="c1"># proportion of &quot;y&quot; rows</span>
+<span class="n">z</span> <span class="o">=</span> <span class="nf">binom.test</span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">Y</span> <span class="o">==</span> <span class="s">&quot;z&quot;</span><span class="p">),</span> <span class="nf">nrow</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="n">p</span><span class="o">=</span><span class="m">1</span><span class="o">/</span><span class="m">3</span><span class="p">)</span> <span class="c1"># proportion of &quot;z&quot; rows</span>
+<span class="nf">p.adjust</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">x</span><span class="o">$</span><span class="n">p.value</span><span class="p">,</span> <span class="n">y</span><span class="o">$</span><span class="n">p.value</span><span class="p">,</span> <span class="n">z</span><span class="o">$</span><span class="n">p.value</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s">&quot;holm&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>S</th>
-      <th>Y</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>3</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4</td>
-      <td>x</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>5</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>6</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>7</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>8</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>9</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>10</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>11</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>12</td>
-      <td>x</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>13</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>14</td>
-      <td>y</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>15</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>16</td>
-      <td>y</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>17</td>
-      <td>x</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>18</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>19</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>20</td>
-      <td>z</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># counts = df[&quot;Y&quot;].value_counts()</span>
-<span class="c1"># x = binomtest(counts[&quot;x&quot;], counts.sum(), p=1/len(counts))</span>
-<span class="c1"># x</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from scipy.stats import binomtest</span>
-
-<span class="c1"># binom_results = [</span>
-<span class="c1">#     binomtest(counts[level], counts.sum(), p=1/len(counts))</span>
-<span class="c1">#     for level in counts.index</span>
-<span class="c1"># ]</span>
-<span class="c1"># binom_results</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># binom_p_values = [r.pvalue for r in binom_results]</span>
-<span class="c1"># binom_p_values</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from statsmodels.stats.multitest import multipletests</span>
-
-<span class="c1"># reject, pvals_corrected, _, _ = multipletests(binom_p_values, method=&quot;holm&quot;)</span>
-<span class="c1"># reject, pvals_corrected</span>
-</pre></div>
-</div>
-</div>
+<ol class=list-inline><li>0.493902062492867</li><li>0.00110663604834825</li><li>0.000266387917877191</li></ol>
+</div></div>
 </div>
 </section>
 </section>
@@ -589,16 +529,16 @@ title="Print to PDF"
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "r"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "ir",
             path: "./content/01-proportions"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'ir'</script>
 
               </div>
               

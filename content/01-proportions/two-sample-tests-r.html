@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>One Sample Tests of Proportion - R &#8212; Statistical Analysis and Reporting</title>
+    <title>Two Sample Tests of Proportion - R &#8212; Statistical Analysis and Reporting</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="One Sample Tests of Proportion - Python" href="one-sample-tests-py.html" />
-    <link rel="prev" title="Welcome to your Jupyter Book" href="../../intro.html" />
+    <link rel="next" title="Two Sample Tests of Proportion - Python" href="two-sample-tests-py.html" />
+    <link rel="prev" title="One Sample Tests of Proportion - Python" href="one-sample-tests-py.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -118,9 +118,9 @@ const thebe_selector_output = ".output, .cell_output"
   One Sample Tests of Proportion
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="one-sample-tests-r.html">
    One Sample Tests of Proportion - R
   </a>
  </li>
@@ -135,9 +135,9 @@ const thebe_selector_output = ".output, .cell_output"
   Two Sample Tests of Proportion
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="two-sample-tests-r.html">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Two Sample Tests of Proportion - R
   </a>
  </li>
@@ -205,7 +205,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/evamaxfield/statsbook/main?urlpath=lab/tree/content/01-proportions/one-sample-tests-r.ipynb"
+        <a href="https://mybinder.org/v2/gh/evamaxfield/statsbook/main?urlpath=lab/tree/content/01-proportions/two-sample-tests-r.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -265,7 +265,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/evamaxfield/statsbook/issues/new?title=Issue%20on%20page%20%2Fcontent/01-proportions/one-sample-tests-r.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/evamaxfield/statsbook/issues/new?title=Issue%20on%20page%20%2Fcontent/01-proportions/two-sample-tests-r.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -293,7 +293,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/content/01-proportions/one-sample-tests-r.ipynb"
+        <a href="../../_sources/content/01-proportions/two-sample-tests-r.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -353,18 +353,18 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#binomial-test">
-   Binomial Test
+  <a class="reference internal nav-link" href="#fisher-s-exact-test">
+   Fisher’s Exact Test
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#multinomial-test">
-   Multinomial Test
+  <a class="reference internal nav-link" href="#g-test">
+   G-Test
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#one-sample-pearson-chi-squared-test">
-   One-Sample Pearson Chi-Squared Test
+  <a class="reference internal nav-link" href="#two-sample-pearson-chi-squared-test">
+   Two-Sample Pearson Chi-Squared Test
   </a>
  </li>
 </ul>
@@ -376,7 +376,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>One Sample Tests of Proportion - R</h1>
+                <h1>Two Sample Tests of Proportion - R</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -387,18 +387,18 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#binomial-test">
-   Binomial Test
+  <a class="reference internal nav-link" href="#fisher-s-exact-test">
+   Fisher’s Exact Test
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#multinomial-test">
-   Multinomial Test
+  <a class="reference internal nav-link" href="#g-test">
+   G-Test
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#one-sample-pearson-chi-squared-test">
-   One-Sample Pearson Chi-Squared Test
+  <a class="reference internal nav-link" href="#two-sample-pearson-chi-squared-test">
+   Two-Sample Pearson Chi-Squared Test
   </a>
  </li>
 </ul>
@@ -411,53 +411,53 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="one-sample-tests-of-proportion-r">
-<h1>One Sample Tests of Proportion - R<a class="headerlink" href="#one-sample-tests-of-proportion-r" title="Permalink to this headline">#</a></h1>
-<section id="binomial-test">
-<h2>Binomial Test<a class="headerlink" href="#binomial-test" title="Permalink to this headline">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="two-sample-tests-of-proportion-r">
+<h1>Two Sample Tests of Proportion - R<a class="headerlink" href="#two-sample-tests-of-proportion-r" title="Permalink to this headline">#</a></h1>
+<section id="fisher-s-exact-test">
+<h2>Fisher’s Exact Test<a class="headerlink" href="#fisher-s-exact-test" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p><strong>Samples:</strong> <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
-<li><p><strong>Response Categories:</strong> <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
+<li><p><strong>Samples:</strong> <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
+<li><p><strong>Response Categories:</strong> <code class="docutils literal notranslate"><span class="pre">≥2</span></code></p></li>
 <li><p><strong>Exact?:</strong> Yes, use with <code class="docutils literal notranslate"><span class="pre">N≤200</span></code></p></li>
-<li><p><strong>Reporting:</strong> “Out of 60 outcomes, 19 were ‘x’ and 41 were ‘y’. A two-sided exact binomial test indicated that these proportions were statistically significantly different from chance (p &lt; .05)”</p></li>
+<li><p><strong>Reporting:</strong> “Table 1 shows the counts of the ‘x’, ‘y’, and ‘z’ outcomes for each of ‘a’ and ‘b’. Fisher’s exact test indicated a statistically significant association between X and Y (p &lt; .0001).”</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example data</span>
-<span class="c1"># df is a long-format data table w/columns for subject (S) and 2-category outcome (Y)</span>
-<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;data/0F0LBs_binomial.csv&quot;</span><span class="p">)</span>
+<span class="c1"># df is a long-format data table w/subject (S), categorical factor (X) and outcome (Y)</span>
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;data/1F2LBs_multinomial.csv&quot;</span><span class="p">)</span>
 <span class="nf">head</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="m">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><table class="dataframe">
-<caption>A data.frame: 20 × 2</caption>
+<caption>A data.frame: 20 × 3</caption>
 <thead>
-	<tr><th></th><th scope=col>S</th><th scope=col>Y</th></tr>
-	<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+	<tr><th></th><th scope=col>S</th><th scope=col>X</th><th scope=col>Y</th></tr>
+	<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
 </thead>
 <tbody>
-	<tr><th scope=row>1</th><td> 1</td><td>y</td></tr>
-	<tr><th scope=row>2</th><td> 2</td><td>y</td></tr>
-	<tr><th scope=row>3</th><td> 3</td><td>x</td></tr>
-	<tr><th scope=row>4</th><td> 4</td><td>y</td></tr>
-	<tr><th scope=row>5</th><td> 5</td><td>y</td></tr>
-	<tr><th scope=row>6</th><td> 6</td><td>x</td></tr>
-	<tr><th scope=row>7</th><td> 7</td><td>y</td></tr>
-	<tr><th scope=row>8</th><td> 8</td><td>x</td></tr>
-	<tr><th scope=row>9</th><td> 9</td><td>y</td></tr>
-	<tr><th scope=row>10</th><td>10</td><td>y</td></tr>
-	<tr><th scope=row>11</th><td>11</td><td>x</td></tr>
-	<tr><th scope=row>12</th><td>12</td><td>y</td></tr>
-	<tr><th scope=row>13</th><td>13</td><td>y</td></tr>
-	<tr><th scope=row>14</th><td>14</td><td>y</td></tr>
-	<tr><th scope=row>15</th><td>15</td><td>y</td></tr>
-	<tr><th scope=row>16</th><td>16</td><td>x</td></tr>
-	<tr><th scope=row>17</th><td>17</td><td>x</td></tr>
-	<tr><th scope=row>18</th><td>18</td><td>y</td></tr>
-	<tr><th scope=row>19</th><td>19</td><td>y</td></tr>
-	<tr><th scope=row>20</th><td>20</td><td>x</td></tr>
+	<tr><th scope=row>1</th><td> 1</td><td>a</td><td>y</td></tr>
+	<tr><th scope=row>2</th><td> 2</td><td>b</td><td>x</td></tr>
+	<tr><th scope=row>3</th><td> 3</td><td>a</td><td>x</td></tr>
+	<tr><th scope=row>4</th><td> 4</td><td>b</td><td>y</td></tr>
+	<tr><th scope=row>5</th><td> 5</td><td>a</td><td>y</td></tr>
+	<tr><th scope=row>6</th><td> 6</td><td>b</td><td>x</td></tr>
+	<tr><th scope=row>7</th><td> 7</td><td>a</td><td>y</td></tr>
+	<tr><th scope=row>8</th><td> 8</td><td>b</td><td>x</td></tr>
+	<tr><th scope=row>9</th><td> 9</td><td>a</td><td>y</td></tr>
+	<tr><th scope=row>10</th><td>10</td><td>b</td><td>z</td></tr>
+	<tr><th scope=row>11</th><td>11</td><td>a</td><td>y</td></tr>
+	<tr><th scope=row>12</th><td>12</td><td>b</td><td>z</td></tr>
+	<tr><th scope=row>13</th><td>13</td><td>a</td><td>y</td></tr>
+	<tr><th scope=row>14</th><td>14</td><td>b</td><td>y</td></tr>
+	<tr><th scope=row>15</th><td>15</td><td>a</td><td>y</td></tr>
+	<tr><th scope=row>16</th><td>16</td><td>b</td><td>y</td></tr>
+	<tr><th scope=row>17</th><td>17</td><td>a</td><td>y</td></tr>
+	<tr><th scope=row>18</th><td>18</td><td>b</td><td>x</td></tr>
+	<tr><th scope=row>19</th><td>19</td><td>a</td><td>y</td></tr>
+	<tr><th scope=row>20</th><td>20</td><td>b</td><td>z</td></tr>
 </tbody>
 </table>
 </div></div>
@@ -465,94 +465,87 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">$</span><span class="n">S</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">S</span><span class="p">)</span> <span class="c1"># Subject id is nominal (unused)</span>
-<span class="n">df</span><span class="o">$</span><span class="n">Y</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">Y</span><span class="p">)</span> <span class="c1"># Y is an outcome of 2 categories</span>
-<span class="n">xt</span> <span class="o">=</span> <span class="nf">xtabs</span><span class="p">(</span> <span class="o">~</span> <span class="n">Y</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span> <span class="c1"># make counts</span>
-<span class="nf">binom.test</span><span class="p">(</span><span class="n">xt</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s">&quot;two.sided&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">$</span><span class="n">X</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">X</span><span class="p">)</span> <span class="c1"># X is a factor of m ≥ 2 levels</span>
+<span class="n">df</span><span class="o">$</span><span class="n">Y</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">Y</span><span class="p">)</span> <span class="c1"># Y is an outcome of n ≥ 2 categories</span>
+<span class="n">xt</span> <span class="o">=</span> <span class="nf">xtabs</span><span class="p">(</span> <span class="o">~</span> <span class="n">X</span> <span class="o">+</span> <span class="n">Y</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span> <span class="c1"># make m × n crosstabs</span>
+<span class="n">xt</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Exact binomial test
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Y
+X    x  y  z
+  a  3 26  1
+  b 14  9  7
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">fisher.test</span><span class="p">(</span><span class="n">xt</span><span class="p">)</span> <span class="c1"># Run test</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Fisher&#39;s Exact Test for Count Data
 
 data:  xt
-number of successes = 19, number of trials = 60, p-value = 0.006218
-alternative hypothesis: true probability of success is not equal to 0.5
-95 percent confidence interval:
- 0.2025755 0.4495597
-sample estimates:
-probability of success 
-             0.3166667 
+p-value = 2.432e-05
+alternative hypothesis: two.sided
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="multinomial-test">
-<h2>Multinomial Test<a class="headerlink" href="#multinomial-test" title="Permalink to this headline">#</a></h2>
+<section id="g-test">
+<h2>G-Test<a class="headerlink" href="#g-test" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p><strong>Samples:</strong> <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
+<li><p><strong>Samples:</strong> <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
 <li><p><strong>Response Categories:</strong> <code class="docutils literal notranslate"><span class="pre">≥2</span></code></p></li>
-<li><p><strong>Exact?:</strong> Yes, use with <code class="docutils literal notranslate"><span class="pre">N≤200</span></code></p></li>
-<li><p><strong>Reporting:</strong> “Out of 60 outcomes, 17 were ‘x’ and 8 were ‘y’, and 35 were ‘z’. An exact multinomial test indicated that these proportions were statistically significantly different from chance (p &lt; .0001)”</p></li>
+<li><p><strong>Exact?:</strong> No, use with <code class="docutils literal notranslate"><span class="pre">N&gt;200</span></code></p></li>
+<li><p><strong>Reporting:</strong> “Table 1 shows the counts of the ‘x’, ‘y’, and ‘z’ outcomes for each of ‘a’ and ‘b’. A G-test indicated a statistically significant association between X and Y (G(2) = 21.40, p &lt; .0001).”</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example data</span>
-<span class="c1"># df is a long-format data table w/columns for subject (S) and N-category outcome (Y)</span>
-<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;data/0F0LBs_multinomial.csv&quot;</span><span class="p">)</span>
+<span class="c1"># df is a long-format data table w/subject (S), categorical factor (X) and outcome (Y)</span>
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;data/1F2LBs_multinomial.csv&quot;</span><span class="p">)</span>
 <span class="nf">head</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="m">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><table class="dataframe">
-<caption>A data.frame: 20 × 2</caption>
+<caption>A data.frame: 20 × 3</caption>
 <thead>
-	<tr><th></th><th scope=col>S</th><th scope=col>Y</th></tr>
-	<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+	<tr><th></th><th scope=col>S</th><th scope=col>X</th><th scope=col>Y</th></tr>
+	<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
 </thead>
 <tbody>
-	<tr><th scope=row>1</th><td> 1</td><td>z</td></tr>
-	<tr><th scope=row>2</th><td> 2</td><td>z</td></tr>
-	<tr><th scope=row>3</th><td> 3</td><td>z</td></tr>
-	<tr><th scope=row>4</th><td> 4</td><td>x</td></tr>
-	<tr><th scope=row>5</th><td> 5</td><td>z</td></tr>
-	<tr><th scope=row>6</th><td> 6</td><td>z</td></tr>
-	<tr><th scope=row>7</th><td> 7</td><td>z</td></tr>
-	<tr><th scope=row>8</th><td> 8</td><td>z</td></tr>
-	<tr><th scope=row>9</th><td> 9</td><td>z</td></tr>
-	<tr><th scope=row>10</th><td>10</td><td>z</td></tr>
-	<tr><th scope=row>11</th><td>11</td><td>z</td></tr>
-	<tr><th scope=row>12</th><td>12</td><td>x</td></tr>
-	<tr><th scope=row>13</th><td>13</td><td>z</td></tr>
-	<tr><th scope=row>14</th><td>14</td><td>y</td></tr>
-	<tr><th scope=row>15</th><td>15</td><td>z</td></tr>
-	<tr><th scope=row>16</th><td>16</td><td>y</td></tr>
-	<tr><th scope=row>17</th><td>17</td><td>x</td></tr>
-	<tr><th scope=row>18</th><td>18</td><td>z</td></tr>
-	<tr><th scope=row>19</th><td>19</td><td>z</td></tr>
-	<tr><th scope=row>20</th><td>20</td><td>z</td></tr>
+	<tr><th scope=row>1</th><td> 1</td><td>a</td><td>y</td></tr>
+	<tr><th scope=row>2</th><td> 2</td><td>b</td><td>x</td></tr>
+	<tr><th scope=row>3</th><td> 3</td><td>a</td><td>x</td></tr>
+	<tr><th scope=row>4</th><td> 4</td><td>b</td><td>y</td></tr>
+	<tr><th scope=row>5</th><td> 5</td><td>a</td><td>y</td></tr>
+	<tr><th scope=row>6</th><td> 6</td><td>b</td><td>x</td></tr>
+	<tr><th scope=row>7</th><td> 7</td><td>a</td><td>y</td></tr>
+	<tr><th scope=row>8</th><td> 8</td><td>b</td><td>x</td></tr>
+	<tr><th scope=row>9</th><td> 9</td><td>a</td><td>y</td></tr>
+	<tr><th scope=row>10</th><td>10</td><td>b</td><td>z</td></tr>
+	<tr><th scope=row>11</th><td>11</td><td>a</td><td>y</td></tr>
+	<tr><th scope=row>12</th><td>12</td><td>b</td><td>z</td></tr>
+	<tr><th scope=row>13</th><td>13</td><td>a</td><td>y</td></tr>
+	<tr><th scope=row>14</th><td>14</td><td>b</td><td>y</td></tr>
+	<tr><th scope=row>15</th><td>15</td><td>a</td><td>y</td></tr>
+	<tr><th scope=row>16</th><td>16</td><td>b</td><td>y</td></tr>
+	<tr><th scope=row>17</th><td>17</td><td>a</td><td>y</td></tr>
+	<tr><th scope=row>18</th><td>18</td><td>b</td><td>x</td></tr>
+	<tr><th scope=row>19</th><td>19</td><td>a</td><td>y</td></tr>
+	<tr><th scope=row>20</th><td>20</td><td>b</td><td>z</td></tr>
 </tbody>
 </table>
 </div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># install.packages(&quot;XNomial&quot;)</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">XNomial</span><span class="p">)</span> <span class="c1"># import for xmulti</span>
-
-<span class="n">df</span><span class="o">$</span><span class="n">S</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">S</span><span class="p">)</span> <span class="c1"># Subject id is nominal (unused)</span>
-<span class="n">df</span><span class="o">$</span><span class="n">Y</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">Y</span><span class="p">)</span> <span class="c1"># Y is an outcome of ≥2 categories</span>
-<span class="n">xt</span> <span class="o">=</span> <span class="nf">xtabs</span><span class="p">(</span> <span class="o">~</span> <span class="n">Y</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span> <span class="c1"># make counts</span>
-<span class="nf">xmulti</span><span class="p">(</span><span class="n">xt</span><span class="p">,</span> <span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="o">/</span><span class="nf">length</span><span class="p">(</span><span class="n">xt</span><span class="p">),</span> <span class="nf">length</span><span class="p">(</span><span class="n">xt</span><span class="p">)),</span> <span class="n">statName</span><span class="o">=</span><span class="s">&quot;Prob&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P value (Prob) = 8.756e-05
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -561,7 +554,11 @@ probability of success
 <span class="c1"># on Ubuntu you may have trouble installing, see: TODO</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">RVAideMemoire</span><span class="p">)</span>
 
-<span class="nf">multinomial.test</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">Y</span><span class="p">)</span>
+<span class="n">df</span><span class="o">$</span><span class="n">S</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">S</span><span class="p">)</span> <span class="c1"># Subject id is nominal (unused)</span>
+<span class="n">df</span><span class="o">$</span><span class="n">X</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">X</span><span class="p">)</span> <span class="c1"># X is a factor of m ≥ 2 levels</span>
+<span class="n">df</span><span class="o">$</span><span class="n">Y</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">Y</span><span class="p">)</span> <span class="c1"># Y is an outcome of n ≥ 2 categories</span>
+<span class="n">xt</span> <span class="o">=</span> <span class="nf">xtabs</span><span class="p">(</span> <span class="o">~</span> <span class="n">X</span> <span class="o">+</span> <span class="n">Y</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span> <span class="c1"># make m × n crosstabs</span>
+<span class="n">xt</span>
 </pre></div>
 </div>
 </div>
@@ -569,60 +566,75 @@ probability of success
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*** Package RVAideMemoire v 0.9-81-2 ***
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Exact multinomial test
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Y
+X    x  y  z
+  a  3 26  1
+  b 14  9  7
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">G.test</span><span class="p">(</span><span class="n">xt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	G-test
 
-data:  $(df,Y)
-p-value = 8.756e-05
+data:  xt
+G = 21.402, df = 2, p-value = 2.252e-05
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="one-sample-pearson-chi-squared-test">
-<h2>One-Sample Pearson Chi-Squared Test<a class="headerlink" href="#one-sample-pearson-chi-squared-test" title="Permalink to this headline">#</a></h2>
+<section id="two-sample-pearson-chi-squared-test">
+<h2>Two-Sample Pearson Chi-Squared Test<a class="headerlink" href="#two-sample-pearson-chi-squared-test" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p><strong>Samples:</strong> <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
+<li><p><strong>Samples:</strong> <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
 <li><p><strong>Response Categories:</strong> <code class="docutils literal notranslate"><span class="pre">≥2</span></code></p></li>
 <li><p><strong>Exact?:</strong> No, use with <code class="docutils literal notranslate"><span class="pre">N&gt;200</span></code></p></li>
-<li><p><strong>Reporting:</strong> “Out of 60 outcomes, 17 were ‘x’, 8 were ‘y’, and 35 were ‘z’. A one-sample Pearson Chi-Squared test indicated that these proportions were statistically significantly different from chance (χ2 (2, N=60) = 18.90, p &lt; .0001).”</p></li>
+<li><p><strong>Reporting:</strong> “Table 1 shows the counts of the ‘x’, ‘y’, and ‘z’ outcomes for each of ‘a’ and ‘b’. A two-sample Pearson Chi-Squared test indicated a statistically significant association between X and Y (χ2(2, N=60) = 19.88, p &lt; .0001).”</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example data</span>
-<span class="c1"># df is a long-format data table w/columns for subject (S) and N-category outcome (Y)</span>
-<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;data/0F0LBs_multinomial.csv&quot;</span><span class="p">)</span>
+<span class="c1"># df is a long-format data table w/subject (S), categorical factor (X) and outcome (Y)</span>
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;data/1F2LBs_multinomial.csv&quot;</span><span class="p">)</span>
 <span class="nf">head</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="m">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><table class="dataframe">
-<caption>A data.frame: 20 × 2</caption>
+<caption>A data.frame: 20 × 3</caption>
 <thead>
-	<tr><th></th><th scope=col>S</th><th scope=col>Y</th></tr>
-	<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+	<tr><th></th><th scope=col>S</th><th scope=col>X</th><th scope=col>Y</th></tr>
+	<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
 </thead>
 <tbody>
-	<tr><th scope=row>1</th><td> 1</td><td>z</td></tr>
-	<tr><th scope=row>2</th><td> 2</td><td>z</td></tr>
-	<tr><th scope=row>3</th><td> 3</td><td>z</td></tr>
-	<tr><th scope=row>4</th><td> 4</td><td>x</td></tr>
-	<tr><th scope=row>5</th><td> 5</td><td>z</td></tr>
-	<tr><th scope=row>6</th><td> 6</td><td>z</td></tr>
-	<tr><th scope=row>7</th><td> 7</td><td>z</td></tr>
-	<tr><th scope=row>8</th><td> 8</td><td>z</td></tr>
-	<tr><th scope=row>9</th><td> 9</td><td>z</td></tr>
-	<tr><th scope=row>10</th><td>10</td><td>z</td></tr>
-	<tr><th scope=row>11</th><td>11</td><td>z</td></tr>
-	<tr><th scope=row>12</th><td>12</td><td>x</td></tr>
-	<tr><th scope=row>13</th><td>13</td><td>z</td></tr>
-	<tr><th scope=row>14</th><td>14</td><td>y</td></tr>
-	<tr><th scope=row>15</th><td>15</td><td>z</td></tr>
-	<tr><th scope=row>16</th><td>16</td><td>y</td></tr>
-	<tr><th scope=row>17</th><td>17</td><td>x</td></tr>
-	<tr><th scope=row>18</th><td>18</td><td>z</td></tr>
-	<tr><th scope=row>19</th><td>19</td><td>z</td></tr>
-	<tr><th scope=row>20</th><td>20</td><td>z</td></tr>
+	<tr><th scope=row>1</th><td> 1</td><td>a</td><td>y</td></tr>
+	<tr><th scope=row>2</th><td> 2</td><td>b</td><td>x</td></tr>
+	<tr><th scope=row>3</th><td> 3</td><td>a</td><td>x</td></tr>
+	<tr><th scope=row>4</th><td> 4</td><td>b</td><td>y</td></tr>
+	<tr><th scope=row>5</th><td> 5</td><td>a</td><td>y</td></tr>
+	<tr><th scope=row>6</th><td> 6</td><td>b</td><td>x</td></tr>
+	<tr><th scope=row>7</th><td> 7</td><td>a</td><td>y</td></tr>
+	<tr><th scope=row>8</th><td> 8</td><td>b</td><td>x</td></tr>
+	<tr><th scope=row>9</th><td> 9</td><td>a</td><td>y</td></tr>
+	<tr><th scope=row>10</th><td>10</td><td>b</td><td>z</td></tr>
+	<tr><th scope=row>11</th><td>11</td><td>a</td><td>y</td></tr>
+	<tr><th scope=row>12</th><td>12</td><td>b</td><td>z</td></tr>
+	<tr><th scope=row>13</th><td>13</td><td>a</td><td>y</td></tr>
+	<tr><th scope=row>14</th><td>14</td><td>b</td><td>y</td></tr>
+	<tr><th scope=row>15</th><td>15</td><td>a</td><td>y</td></tr>
+	<tr><th scope=row>16</th><td>16</td><td>b</td><td>y</td></tr>
+	<tr><th scope=row>17</th><td>17</td><td>a</td><td>y</td></tr>
+	<tr><th scope=row>18</th><td>18</td><td>b</td><td>x</td></tr>
+	<tr><th scope=row>19</th><td>19</td><td>a</td><td>y</td></tr>
+	<tr><th scope=row>20</th><td>20</td><td>b</td><td>z</td></tr>
 </tbody>
 </table>
 </div></div>
@@ -630,17 +642,37 @@ p-value = 8.756e-05
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">$</span><span class="n">S</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">S</span><span class="p">)</span> <span class="c1"># Subject id is nominal (unused)</span>
-<span class="n">df</span><span class="o">$</span><span class="n">Y</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">Y</span><span class="p">)</span> <span class="c1"># Y is an outcome of ≥2 categories</span>
-<span class="n">xt</span> <span class="o">=</span> <span class="nf">xtabs</span><span class="p">(</span> <span class="o">~</span> <span class="n">Y</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span> <span class="c1"># make counts</span>
-<span class="nf">chisq.test</span><span class="p">(</span><span class="n">xt</span><span class="p">)</span>
+<span class="n">df</span><span class="o">$</span><span class="n">X</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">X</span><span class="p">)</span> <span class="c1"># X is a factor of m ≥ 2 levels</span>
+<span class="n">df</span><span class="o">$</span><span class="n">Y</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">Y</span><span class="p">)</span> <span class="c1"># Y is an outcome of n ≥ 2 categories</span>
+<span class="n">xt</span> <span class="o">=</span> <span class="nf">xtabs</span><span class="p">(</span> <span class="o">~</span> <span class="n">X</span> <span class="o">+</span> <span class="n">Y</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span> <span class="c1"># make m × n crosstabs</span>
+<span class="n">xt</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Chi-squared test for given probabilities
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Y
+X    x  y  z
+  a  3 26  1
+  b 14  9  7
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">chisq.test</span><span class="p">(</span><span class="n">xt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in chisq.test(xt):
+“Chi-squared approximation may be incorrect”
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Pearson&#39;s Chi-squared test
 
 data:  xt
-X-squared = 18.9, df = 2, p-value = 7.869e-05
+X-squared = 19.875, df = 2, p-value = 4.833e-05
 </pre></div>
 </div>
 </div>
@@ -675,17 +707,17 @@ X-squared = 18.9, df = 2, p-value = 7.869e-05
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../../intro.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="one-sample-tests-py.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Welcome to your Jupyter Book</p>
+            <p class="prev-next-title">One Sample Tests of Proportion - Python</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="one-sample-tests-py.html" title="next page">
+    <a class='right-next' id="next-link" href="two-sample-tests-py.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">One Sample Tests of Proportion - Python</p>
+        <p class="prev-next-title">Two Sample Tests of Proportion - Python</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
