@@ -146,6 +146,30 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  ANOVA Assumptions
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/02-assumptions-and-distributions/anova-r.html">
+   ANOVA Assumptions - R
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Distributions
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/02-assumptions-and-distributions/distributions-r.html">
+   Distributions - R
+  </a>
+ </li>
+</ul>
 
     </div>
 </nav></div>
@@ -328,6 +352,16 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tests-of-assumption-index">
+   Tests of Assumption Index
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tests-of-distributions-index">
+   Tests of Distributions Index
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#full-table-of-contents">
    Full Table of Contents
   </a>
@@ -359,6 +393,16 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tests-of-assumption-index">
+   Tests of Assumption Index
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tests-of-distributions-index">
+   Tests of Distributions Index
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#full-table-of-contents">
    Full Table of Contents
   </a>
@@ -385,8 +429,8 @@ title="Print to PDF"
 <tr class="row-odd"><th class="head"><p>Samples</p></th>
 <th class="head"><p>Response Categories</p></th>
 <th class="head"><p>N</p></th>
-<th class="head"><p>Language: R</p></th>
-<th class="head"><p>Language: Python</p></th>
+<th class="head"><p>Test in R</p></th>
+<th class="head"><p>Test in Python</p></th>
 </tr>
 </thead>
 <tbody>
@@ -429,6 +473,99 @@ title="Print to PDF"
 </tbody>
 </table>
 </section>
+<section id="tests-of-assumption-index">
+<h2>Tests of Assumption Index<a class="headerlink" href="#tests-of-assumption-index" title="Permalink to this headline">#</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Assumption</p></th>
+<th class="head"><p>Context of Use</p></th>
+<th class="head"><p>Test in R</p></th>
+<th class="head"><p>Test in Python</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Normality</p></td>
+<td><p>t-test, ANOVA, LM, LMM</p></td>
+<td><p><a class="reference external" href="./content/02-assumptions-and-distributions/anova-r.html#shapiro-wilk-test-on-responses">Shapiro-Wilk Test (on responses)</a></p></td>
+<td><p><a class="reference external" href="./content/content/02-assumptions-and-distributions/anova-py.html#shapiro-wilk-test-on-responses">Shapiro-Wilk Test (on responses)</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Normality</p></td>
+<td><p>t-test, ANOVA, LM, LMM</p></td>
+<td><p><a class="reference external" href="./content/02-assumptions-and-distributions/anova-r.html#shapiro-wilk-test-on-residuals">Shapiro-Wilk Test (on residuals)</a></p></td>
+<td><p><a class="reference external" href="./content/content/02-assumptions-and-distributions/anova-py.html#shapiro-wilk-test-on-residuals">Shapiro-Wilk Test (on residuals)</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Normality</p></td>
+<td><p>t-test, ANOVA, LM, LMM</p></td>
+<td><p><a class="reference external" href="./content/02-assumptions-and-distributions/anova-r.html#anderson-darling-test-on-responses">Anderson-Darling Test (on responses)</a></p></td>
+<td><p><a class="reference external" href="./content/02-assumptions-and-distributions/anova-py.html#anderson-darling-test-on-responses">Anderson-Darling Test (on responses)</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Normality</p></td>
+<td><p>t-test, ANOVA, LM, LMM</p></td>
+<td><p><a class="reference external" href="./content/02-assumptions-and-distributions/anova-r.html#anderson-darling-test-on-residuals">Anderson-Darling Test (on residuals)</a></p></td>
+<td><p><a class="reference external" href="./content/02-assumptions-and-distributions/anova-py.html#anderson-darling-test-on-residuals">Anderson-Darling Test (on residuals)</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Homoscedasticity (Homogeneity of Variance)</p></td>
+<td><p>t-test, ANOVA, LM, LMM</p></td>
+<td><p><a class="reference external" href="./content/02-assumptions-and-distributions/anova-r.html#levene-s-test">Levene’s Test</a></p></td>
+<td><p><a class="reference external" href="./content/02-assumptions-and-distributions/anova-py.html#levene-s-test">Levene’s Test</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Homoscedasticity (Homogeneity of Variance)</p></td>
+<td><p>t-test, ANOVA, LM, LMM</p></td>
+<td><p><a class="reference external" href="./content/02-assumptions-and-distributions/anova-r.html#brown-forsythe-test">Brown-Forsythe Test</a></p></td>
+<td><p><a class="reference external" href="./content/02-assumptions-and-distributions/anova-py.html#brown-forsythe-test">Brown-Forsythe Test</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Sphericity</p></td>
+<td><p>Repeated Measures ANOVA</p></td>
+<td><p><a class="reference external" href="./content/02-assumptions-and-distributions/anova-r.html#mauchly-s-test-of-sphericity">Mauchly’s Test of Sphericity</a></p></td>
+<td><p><a class="reference external" href="./content/02-assumptions-and-distributions/anova-py.html#mauchly-s-test-of-sphericity">Mauchly’s Test of Sphericity</a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tests-of-distributions-index">
+<h2>Tests of Distributions Index<a class="headerlink" href="#tests-of-distributions-index" title="Permalink to this headline">#</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Distribution</p></th>
+<th class="head"><p>Parameterization</p></th>
+<th class="head"><p>Test in R</p></th>
+<th class="head"><p>Test in Python</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Normal</p></td>
+<td><p>mean (μ): <code class="docutils literal notranslate"><span class="pre">mean</span></code>, standard deviation (σ): <code class="docutils literal notranslate"><span class="pre">sd</span></code></p></td>
+<td><p><a class="reference external" href="./content/02-assumptions-and-distributions/distributions-r.html#normal-distribution">KS Test for Normal Distribution</a></p></td>
+<td><p><a class="reference external" href="./content/02-assumptions-and-distributions/distributions-py.html#normal-distribution">KS Test for Normal Distribution</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Lognormal</p></td>
+<td><p>mean (μ): <code class="docutils literal notranslate"><span class="pre">meanlog</span></code>, standard deviation (σ): <code class="docutils literal notranslate"><span class="pre">sdlog</span></code></p></td>
+<td><p><a class="reference external" href="./content/02-assumptions-and-distributions/distributions-r.html#lognormal-distribution">KS Test for Lognormal Distribution</a></p></td>
+<td><p><a class="reference external" href="./content/02-assumptions-and-distributions/distributions-py.html#lognormal-distribution">KS Test for Lognormal Distribution</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Poisson</p></td>
+<td><p>lambda (λ): <code class="docutils literal notranslate"><span class="pre">lambda</span></code></p></td>
+<td><p><a class="reference external" href="./content/02-assumptions-and-distributions/distributions-r.html#poisson-distribution">KS Test for Poisson Distribution</a></p></td>
+<td><p><a class="reference external" href="./content/02-assumptions-and-distributions/distributions-py.html#poisson-distribution">KS Test for Poisson Distribution</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Negative Binomial</p></td>
+<td><p>theta (θ): <code class="docutils literal notranslate"><span class="pre">theta</span></code>, mu (μ): <code class="docutils literal notranslate"><span class="pre">mu</span></code></p></td>
+<td><p><a class="reference external" href="./content/02-assumptions-and-distributions/distributions-r.html#negative-binomial-distribution">KS Test for Negative Binomial Distribution</a></p></td>
+<td><p><a class="reference external" href="./content/02-assumptions-and-distributions/distributions-py.html#negative-binomial-distribution">KS Test for Negative Binomial Distribution</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Exponential</p></td>
+<td><p>rate (λ): <code class="docutils literal notranslate"><span class="pre">rate</span></code></p></td>
+<td><p><a class="reference external" href="./content/02-assumptions-and-distributions/distributions-r.html#exponential-distribution">KS Test for Exponential Distribution</a></p></td>
+<td><p><a class="reference external" href="./content/02-assumptions-and-distributions/distributions-py.html#exponential-distribution">KS Test for Exponential Distribution</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Gamma</p></td>
+<td><p>shape (α): <code class="docutils literal notranslate"><span class="pre">shape</span></code>, rate (β): <code class="docutils literal notranslate"><span class="pre">rate</span></code></p></td>
+<td><p><a class="reference external" href="./content/02-assumptions-and-distributions/distributions-r.html#gamma-distribution">KS Test for Gamma Distribution</a></p></td>
+<td><p><a class="reference external" href="./content/02-assumptions-and-distributions/distributions-py.html#gamma-distribution">KS Test for Gamma Distribution</a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="full-table-of-contents">
 <h2>Full Table of Contents<a class="headerlink" href="#full-table-of-contents" title="Permalink to this headline">#</a></h2>
 <div class="toctree-wrapper compound">
@@ -443,6 +580,18 @@ title="Print to PDF"
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="content/01-proportions/two-sample-tests-r.html">Two Sample Tests of Proportion - R</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content/01-proportions/two-sample-tests-py.html">Two Sample Tests of Proportion - Python</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ANOVA Assumptions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/02-assumptions-and-distributions/anova-r.html">ANOVA Assumptions - R</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Distributions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/02-assumptions-and-distributions/distributions-r.html">Distributions - R</a></li>
 </ul>
 </div>
 </section>
