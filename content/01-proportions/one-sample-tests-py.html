@@ -418,7 +418,7 @@ title="Print to PDF"
 <ul class="simple">
 <li><p><strong>Samples:</strong> <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
 <li><p><strong>Response Categories:</strong> <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
-<li><p><strong>Exact?:</strong> Yes, use with <code class="docutils literal notranslate"><span class="pre">N&lt;=200</span></code></p></li>
+<li><p><strong>Exact?:</strong> Yes, use with <code class="docutils literal notranslate"><span class="pre">N≤200</span></code></p></li>
 <li><p><strong>Reporting:</strong> “Out of 60 outcomes, 19 were ‘x’ and 41 were ‘y’. A two-sided exact binomial test indicated that these proportions were statistically significantly different from chance (p &lt; .05)”</p></li>
 </ul>
 <div class="cell docutils container">
@@ -427,8 +427,150 @@ title="Print to PDF"
 
 <span class="c1"># Example data</span>
 <span class="c1"># df is a long-format data table w/columns for subject (S) and 2-category outcome (Y)</span>
-<span class="c1"># df &lt;- pd.read_csv(&quot;data/0F0LBs_binomial.csv&quot;)</span>
-<span class="c1"># print(df)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/0F0LBs_binomial.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>S</th>
+      <th>Y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>14</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>15</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>16</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>17</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>18</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>19</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>20</td>
+      <td>x</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">binom_test</span>
+
+<span class="n">counts</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Y</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">binom_test</span><span class="p">(</span><span class="n">counts</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="n">counts</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0062176026593266705
 </pre></div>
 </div>
 </div>
@@ -438,8 +580,8 @@ title="Print to PDF"
 <h2>Multinomial Test<a class="headerlink" href="#multinomial-test" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><strong>Samples:</strong> <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
-<li><p><strong>Response Categories:</strong> <code class="docutils literal notranslate"><span class="pre">&gt;=2</span></code></p></li>
-<li><p><strong>Exact?:</strong> Yes, use with <code class="docutils literal notranslate"><span class="pre">N&lt;=200</span></code></p></li>
+<li><p><strong>Response Categories:</strong> <code class="docutils literal notranslate"><span class="pre">≥2</span></code></p></li>
+<li><p><strong>Exact?:</strong> Yes, use with <code class="docutils literal notranslate"><span class="pre">N≤200</span></code></p></li>
 <li><p><strong>Reporting:</strong> “Out of 60 outcomes, 17 were ‘x’ and 8 were ‘y’, and 35 were ‘z’. An exact multinomial test indicated that these proportions were statistically significantly different from chance (p &lt; .0001)”</p></li>
 </ul>
 <div class="cell docutils container">
@@ -581,32 +723,24 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xt</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-<span class="n">xt</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>z    35
-x    17
-y     8
-Name: Y, dtype: int64
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">multinomial</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="n">n_cat</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">xt</span><span class="p">)</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">n_cat</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
 <span class="n">multinomial</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">xt</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">n_cat</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">n_cat</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.3245790422271725e-06
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">n_cat</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">multinomial</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">xt</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">n_cat</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">n_cat</span><span class="p">))</span>
+
+<span class="ne">NameError</span>: name &#39;xt&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -616,7 +750,7 @@ Name: Y, dtype: int64
 <h2>One-Sample Pearson Chi-Squared Test<a class="headerlink" href="#one-sample-pearson-chi-squared-test" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><strong>Samples:</strong> <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
-<li><p><strong>Response Categories:</strong> <code class="docutils literal notranslate"><span class="pre">&gt;=2</span></code></p></li>
+<li><p><strong>Response Categories:</strong> <code class="docutils literal notranslate"><span class="pre">≥2</span></code></p></li>
 <li><p><strong>Exact?:</strong> No, use with <code class="docutils literal notranslate"><span class="pre">N&gt;200</span></code></p></li>
 <li><p><strong>Reporting:</strong> “Out of 60 outcomes, 17 were ‘x’, 8 were ‘y’, and 35 were ‘z’. A one-sample Pearson Chi-Squared test indicated that these proportions were statistically significantly different from chance (χ2 (2, N=60) = 18.90, p &lt; .0001).”</p></li>
 </ul>
