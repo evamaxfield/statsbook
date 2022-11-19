@@ -12,3 +12,9 @@ parts:
   chapters:
   - file: content/01-proportions/two-sample-tests-r.ipynb
   - file: content/01-proportions/two-sample-tests-py.ipynb
+- caption: ANOVA Assumptions
+  chapters:
+  - file: content/02-assumptions-and-distributions/anova-r.ipynb
+- caption: Distributions
+  chapters:
+  - file: content/02-assumptions-and-distributions/distributions-r.ipynb

@@ -16,6 +16,12 @@ dependencies:
   - bioconda::bioconductor-mixomics
   - conda-forge::r-rvaidememoire
   - conda-forge::r-xnomial
+  - conda-forge::r-ggplot2
+  - conda-forge::r-ggthemes
+  - conda-forge::r-scales
+  - conda-forge::r-nortest
+  - conda-forge::r-ez
+  - conda-forge::r-fitdistrplus
   # Extras
   - conda-forge::just
   - pip:
