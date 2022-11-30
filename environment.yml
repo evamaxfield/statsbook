@@ -22,6 +22,7 @@ dependencies:
   - conda-forge::r-nortest
   - conda-forge::r-ez
   - conda-forge::r-fitdistrplus
+  - conda-forge::r-coin
   # Extras
   - conda-forge::just
   - pip:
