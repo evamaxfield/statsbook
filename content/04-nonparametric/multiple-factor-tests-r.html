@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Post Hoc Analysis for One Sample Tests of Proportion - Python &#8212; Statistical Analysis and Reporting</title>
+    <title>Multiple Factor Nonparametric Tests - R &#8212; Statistical Analysis and Reporting</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,6 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="One Factor Nonparametric Tests - R" href="one-factor-tests-r.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -118,12 +119,12 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="one-sample-tests-r.html">
+  <a class="reference internal" href="../01-proportions/one-sample-tests-r.html">
    One Sample Tests of Proportion - R
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="one-sample-tests-py.html">
+  <a class="reference internal" href="../01-proportions/one-sample-tests-py.html">
    One Sample Tests of Proportion - Python
   </a>
  </li>
@@ -135,12 +136,12 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="two-sample-tests-r.html">
+  <a class="reference internal" href="../01-proportions/two-sample-tests-r.html">
    Two Sample Tests of Proportion - R
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="two-sample-tests-py.html">
+  <a class="reference internal" href="../01-proportions/two-sample-tests-py.html">
    Two Sample Tests of Proportion - Python
   </a>
  </li>
@@ -191,14 +192,14 @@ const thebe_selector_output = ".output, .cell_output"
   Nonparametric Tests
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../04-nonparametric/one-factor-tests-r.html">
+  <a class="reference internal" href="one-factor-tests-r.html">
    One Factor Nonparametric Tests - R
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../04-nonparametric/multiple-factor-tests-r.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Multiple Factor Nonparametric Tests - R
   </a>
  </li>
@@ -261,7 +262,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/evamaxfield/statsbook/main?urlpath=lab/tree/content/01-proportions/one-sample-post-hoc-tests-py.ipynb"
+        <a href="https://mybinder.org/v2/gh/evamaxfield/statsbook/main?urlpath=lab/tree/content/04-nonparametric/multiple-factor-tests-r.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -321,7 +322,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/evamaxfield/statsbook/issues/new?title=Issue%20on%20page%20%2Fcontent/01-proportions/one-sample-post-hoc-tests-py.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/evamaxfield/statsbook/issues/new?title=Issue%20on%20page%20%2Fcontent/04-nonparametric/multiple-factor-tests-r.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -349,7 +350,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/content/01-proportions/one-sample-post-hoc-tests-py.ipynb"
+        <a href="../../_sources/content/04-nonparametric/multiple-factor-tests-r.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -409,8 +410,23 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#binomial-tests">
-   Binomial Tests
+  <a class="reference internal nav-link" href="#aligned-rank-transform-for-between-subjects-art">
+   Aligned Rank Transform for Between Subjects (ART)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generalized-linear-model-glm">
+   Generalized Linear Model (GLM)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aligned-rank-transform-for-within-subjects-art">
+   Aligned Rank Transform for Within Subjects (ART)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generalized-linear-mixed-model-glmm">
+   Generalized Linear Mixed Model (GLMM)
   </a>
  </li>
 </ul>
@@ -422,7 +438,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Post Hoc Analysis for One Sample Tests of Proportion - Python</h1>
+                <h1>Multiple Factor Nonparametric Tests - R</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -433,8 +449,23 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#binomial-tests">
-   Binomial Tests
+  <a class="reference internal nav-link" href="#aligned-rank-transform-for-between-subjects-art">
+   Aligned Rank Transform for Between Subjects (ART)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generalized-linear-model-glm">
+   Generalized Linear Model (GLM)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aligned-rank-transform-for-within-subjects-art">
+   Aligned Rank Transform for Within Subjects (ART)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generalized-linear-mixed-model-glmm">
+   Generalized Linear Mixed Model (GLMM)
   </a>
  </li>
 </ul>
@@ -447,194 +478,151 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="post-hoc-analysis-for-one-sample-tests-of-proportion-python">
-<h1>Post Hoc Analysis for One Sample Tests of Proportion - Python<a class="headerlink" href="#post-hoc-analysis-for-one-sample-tests-of-proportion-python" title="Permalink to this headline">#</a></h1>
-<section id="binomial-tests">
-<h2>Binomial Tests<a class="headerlink" href="#binomial-tests" title="Permalink to this headline">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="multiple-factor-nonparametric-tests-r">
+<h1>Multiple Factor Nonparametric Tests - R<a class="headerlink" href="#multiple-factor-nonparametric-tests-r" title="Permalink to this headline">#</a></h1>
+<section id="aligned-rank-transform-for-between-subjects-art">
+<h2>Aligned Rank Transform for Between Subjects (ART)<a class="headerlink" href="#aligned-rank-transform-for-between-subjects-art" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p><strong>Samples:</strong> <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
-<li><p><strong>Response Categories:</strong> <code class="docutils literal notranslate"><span class="pre">&gt;=2</span></code></p></li>
-<li><p><strong>Omnibus Test:</strong> Multinomial Test</p></li>
-<li><p><strong>Contrast Test:</strong> Binomial Test</p></li>
-<li><p><strong>Reporting:</strong> “Pairwise comparisons using exact binomial tests, corrected with Holm’s sequential Bonferroni procedure, indicated that the proportions of ‘x’ and ‘z’ and ‘y’ and ‘z’ were statistically significantly different (p &lt; .05), but that the proportions of ‘x’ and ‘y’ were not.”</p></li>
+<li><p><strong>Samples:</strong> <code class="docutils literal notranslate"><span class="pre">≥2</span></code></p></li>
+<li><p><strong>Levels:</strong> <code class="docutils literal notranslate"><span class="pre">≥2</span></code></p></li>
+<li><p><strong>Between or Within Subjects:</strong> Between</p></li>
+<li><p><strong>Reporting:</strong> “Figure 10 shows boxplots for all levels of X1×X2. A nonparametric analysis of variance based on the Aligned Rank Transform indicated no statistically significant effect on Y of X1 (F(1, 56) = 1.98, n.s.), or of X2 (F(1, 56) = 0.81, n.s.), but there was a statistically significant X1×X2 interaction (F(1, 56) = 13.65, p &lt; .001).”</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/0F0LBs_multinomial.csv&quot;</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example data</span>
+<span class="c1"># df has subjects (S), two between-Ss factors (X1,X2) each w/levels (a,b), and continuous response (Y)</span>
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;data/2F2LBs.csv&quot;</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="m">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>S</th>
-      <th>Y</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>3</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4</td>
-      <td>x</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>5</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>6</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>7</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>8</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>9</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>10</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>11</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>12</td>
-      <td>x</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>13</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>14</td>
-      <td>y</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>15</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>16</td>
-      <td>y</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>17</td>
-      <td>x</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>18</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>19</td>
-      <td>z</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>20</td>
-      <td>z</td>
-    </tr>
-  </tbody>
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 20 × 4</caption>
+<thead>
+	<tr><th></th><th scope=col>S</th><th scope=col>X1</th><th scope=col>X2</th><th scope=col>Y</th></tr>
+	<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td> 1</td><td>a</td><td>a</td><td> 8.236467</td></tr>
+	<tr><th scope=row>2</th><td> 2</td><td>a</td><td>b</td><td>12.965256</td></tr>
+	<tr><th scope=row>3</th><td> 3</td><td>b</td><td>a</td><td>10.782947</td></tr>
+	<tr><th scope=row>4</th><td> 4</td><td>b</td><td>b</td><td> 7.385979</td></tr>
+	<tr><th scope=row>5</th><td> 5</td><td>a</td><td>a</td><td>12.041681</td></tr>
+	<tr><th scope=row>6</th><td> 6</td><td>a</td><td>b</td><td>12.779924</td></tr>
+	<tr><th scope=row>7</th><td> 7</td><td>b</td><td>a</td><td>11.581190</td></tr>
+	<tr><th scope=row>8</th><td> 8</td><td>b</td><td>b</td><td> 9.529899</td></tr>
+	<tr><th scope=row>9</th><td> 9</td><td>a</td><td>a</td><td>12.658464</td></tr>
+	<tr><th scope=row>10</th><td>10</td><td>a</td><td>b</td><td>14.159172</td></tr>
+	<tr><th scope=row>11</th><td>11</td><td>b</td><td>a</td><td> 9.548367</td></tr>
+	<tr><th scope=row>12</th><td>12</td><td>b</td><td>b</td><td> 7.859910</td></tr>
+	<tr><th scope=row>13</th><td>13</td><td>a</td><td>a</td><td>10.395678</td></tr>
+	<tr><th scope=row>14</th><td>14</td><td>a</td><td>b</td><td>10.385932</td></tr>
+	<tr><th scope=row>15</th><td>15</td><td>b</td><td>a</td><td>12.512831</td></tr>
+	<tr><th scope=row>16</th><td>16</td><td>b</td><td>b</td><td> 8.080291</td></tr>
+	<tr><th scope=row>17</th><td>17</td><td>a</td><td>a</td><td>10.252031</td></tr>
+	<tr><th scope=row>18</th><td>18</td><td>a</td><td>b</td><td>12.052793</td></tr>
+	<tr><th scope=row>19</th><td>19</td><td>b</td><td>a</td><td>13.768800</td></tr>
+	<tr><th scope=row>20</th><td>20</td><td>b</td><td>b</td><td>11.417579</td></tr>
+</tbody>
 </table>
-</div></div></div>
+</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># counts = df[&quot;Y&quot;].value_counts()</span>
-<span class="c1"># x = binomtest(counts[&quot;x&quot;], counts.sum(), p=1/len(counts))</span>
-<span class="c1"># x</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># library(ARTool)</span>
+<span class="c1"># df$S = factor(df$S) # Subject id is nominal (unused)</span>
+<span class="c1"># df$X1 = factor(df$X1) # X1 is a 2-level factor</span>
+<span class="c1"># df$X2 = factor(df$X2) # X2 is a 2-level factor</span>
+<span class="c1"># m = art(Y ~ X1*X2, data=df)</span>
+<span class="c1"># anova(m)</span>
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="generalized-linear-model-glm">
+<h2>Generalized Linear Model (GLM)<a class="headerlink" href="#generalized-linear-model-glm" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>Samples:</strong> <code class="docutils literal notranslate"><span class="pre">≥2</span></code></p></li>
+<li><p><strong>Levels:</strong> <code class="docutils literal notranslate"><span class="pre">≥2</span></code></p></li>
+<li><p><strong>Between or Within Subjects:</strong> Between</p></li>
+<li><p><strong>Reporting:</strong> “The median of ‘a’ was 11.92 (IQR = 2.35) and of ‘b’ was 10.74 (IQR = 2.29). This difference was statistically significant according to a Wilcoxon signed-rank test (Z = 2.11, p &lt; .05).”</p></li>
+</ul>
+<p><span class="xref myst">See Generalized Linear (Mixed) Models: Distributions and Canonical Links</span></p>
+</section>
+<section id="aligned-rank-transform-for-within-subjects-art">
+<h2>Aligned Rank Transform for Within Subjects (ART)<a class="headerlink" href="#aligned-rank-transform-for-within-subjects-art" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>Samples:</strong> <code class="docutils literal notranslate"><span class="pre">≥2</span></code></p></li>
+<li><p><strong>Levels:</strong> <code class="docutils literal notranslate"><span class="pre">≥2</span></code></p></li>
+<li><p><strong>Between or Within Subjects:</strong> Within</p></li>
+<li><p><strong>Reporting:</strong> “Figure 11 shows boxplots for all levels of X1×X2. A nonparametric analysis of variance based on the Aligned Rank Transform indicated no statistically significant effect on Y of X1 (F(1, 42) = 1.85, n.s.) or of the X1×X2 interaction (F(1, 42) = 1.93, n.s.), but there was a statistically significant effect of X2 (F(1, 42) = 24.97, p &lt; .0001).”</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from scipy.stats import binomtest</span>
-
-<span class="c1"># binom_results = [</span>
-<span class="c1">#     binomtest(counts[level], counts.sum(), p=1/len(counts))</span>
-<span class="c1">#     for level in counts.index</span>
-<span class="c1"># ]</span>
-<span class="c1"># binom_results</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example data</span>
+<span class="c1"># df has subjects (S), two within-Ss factors (X1,X2) each w/levels (a,b), and continuous response (Y)</span>
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;data/2F2LWs.csv&quot;</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="m">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 20 × 4</caption>
+<thead>
+	<tr><th></th><th scope=col>S</th><th scope=col>X1</th><th scope=col>X2</th><th scope=col>Y</th></tr>
+	<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>1</td><td>a</td><td>a</td><td>13.177771</td></tr>
+	<tr><th scope=row>2</th><td>1</td><td>a</td><td>b</td><td>13.299755</td></tr>
+	<tr><th scope=row>3</th><td>1</td><td>b</td><td>a</td><td> 9.909350</td></tr>
+	<tr><th scope=row>4</th><td>1</td><td>b</td><td>b</td><td>16.457684</td></tr>
+	<tr><th scope=row>5</th><td>2</td><td>a</td><td>a</td><td>11.770180</td></tr>
+	<tr><th scope=row>6</th><td>2</td><td>a</td><td>b</td><td>14.804296</td></tr>
+	<tr><th scope=row>7</th><td>2</td><td>b</td><td>a</td><td> 9.819264</td></tr>
+	<tr><th scope=row>8</th><td>2</td><td>b</td><td>b</td><td>13.907344</td></tr>
+	<tr><th scope=row>9</th><td>3</td><td>a</td><td>a</td><td> 8.535872</td></tr>
+	<tr><th scope=row>10</th><td>3</td><td>a</td><td>b</td><td>12.210064</td></tr>
+	<tr><th scope=row>11</th><td>3</td><td>b</td><td>a</td><td>12.448765</td></tr>
+	<tr><th scope=row>12</th><td>3</td><td>b</td><td>b</td><td>12.204888</td></tr>
+	<tr><th scope=row>13</th><td>4</td><td>a</td><td>a</td><td>10.287867</td></tr>
+	<tr><th scope=row>14</th><td>4</td><td>a</td><td>b</td><td>16.082883</td></tr>
+	<tr><th scope=row>15</th><td>4</td><td>b</td><td>a</td><td> 9.196968</td></tr>
+	<tr><th scope=row>16</th><td>4</td><td>b</td><td>b</td><td> 9.614437</td></tr>
+	<tr><th scope=row>17</th><td>5</td><td>a</td><td>a</td><td> 9.040155</td></tr>
+	<tr><th scope=row>18</th><td>5</td><td>a</td><td>b</td><td>16.885613</td></tr>
+	<tr><th scope=row>19</th><td>5</td><td>b</td><td>a</td><td>10.184381</td></tr>
+	<tr><th scope=row>20</th><td>5</td><td>b</td><td>b</td><td>14.435134</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># library(ARTool)</span>
+<span class="c1"># df$S = factor(df$S) # Subject id is nominal</span>
+<span class="c1"># df$X1 = factor(df$X1) # X1 is a 2-level factor</span>
+<span class="c1"># df$X2 = factor(df$X2) # X2 is a 2-level factor</span>
+<span class="c1"># m = art(Y ~ X1*X2 + (1|S), data=df) # S is a random factor</span>
+<span class="c1"># anova(m)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># binom_p_values = [r.pvalue for r in binom_results]</span>
-<span class="c1"># binom_p_values</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from statsmodels.stats.multitest import multipletests</span>
-
-<span class="c1"># reject, pvals_corrected, _, _ = multipletests(binom_p_values, method=&quot;holm&quot;)</span>
-<span class="c1"># reject, pvals_corrected</span>
-</pre></div>
-</div>
-</div>
-</div>
+</section>
+<section id="generalized-linear-mixed-model-glmm">
+<h2>Generalized Linear Mixed Model (GLMM)<a class="headerlink" href="#generalized-linear-mixed-model-glmm" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>Samples:</strong> <code class="docutils literal notranslate"><span class="pre">≥2</span></code></p></li>
+<li><p><strong>Levels:</strong> <code class="docutils literal notranslate"><span class="pre">≥2</span></code></p></li>
+<li><p><strong>Between or Within Subjects:</strong> Within</p></li>
+<li><p><strong>Reporting:</strong> “The median of ‘a’ was 11.92 (IQR = 2.35) and of ‘b’ was 10.74 (IQR = 2.29). This difference was statistically significant according to a Wilcoxon signed-rank test (Z = 2.11, p &lt; .05).”</p></li>
+</ul>
+<p><span class="xref myst">See Generalized Linear (Mixed) Models: Distributions and Canonical Links</span></p>
 </section>
 </section>
 
@@ -647,16 +635,16 @@ title="Print to PDF"
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "r"
         },
         kernelOptions: {
-            kernelName: "python3",
-            path: "./content/01-proportions"
+            kernelName: "ir",
+            path: "./content/04-nonparametric"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'ir'</script>
 
               </div>
               
@@ -665,6 +653,13 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="one-factor-tests-r.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">One Factor Nonparametric Tests - R</p>
+        </div>
+    </a>
 </div>
             </footer>
         </div>

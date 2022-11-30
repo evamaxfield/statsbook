@@ -170,6 +170,40 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Parametric Tests
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/03-parametric/one-factor-tests-r.html">
+   One Factor Parametric Tests - R
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/03-parametric/multiple-factor-tests-r.html">
+   Multiple Factor Parametric Tests - R
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Nonparametric Tests
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/04-nonparametric/one-factor-tests-r.html">
+   One Factor Nonparametric Tests - R
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/04-nonparametric/multiple-factor-tests-r.html">
+   Multiple Factor Nonparametric Tests - R
+  </a>
+ </li>
+</ul>
 
     </div>
 </nav></div>
@@ -362,11 +396,14 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#full-table-of-contents">
-   Full Table of Contents
+  <a class="reference internal nav-link" href="#parametric-tests-of-effect-index">
+   Parametric Tests of Effect Index
   </a>
-  <ul class="nav section-nav flex-column">
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nonparametric-tests-of-effect-index">
+   Nonparametric Tests of Effect Index
+  </a>
  </li>
 </ul>
 
@@ -403,11 +440,14 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#full-table-of-contents">
-   Full Table of Contents
+  <a class="reference internal nav-link" href="#parametric-tests-of-effect-index">
+   Parametric Tests of Effect Index
   </a>
-  <ul class="nav section-nav flex-column">
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nonparametric-tests-of-effect-index">
+   Nonparametric Tests of Effect Index
+  </a>
  </li>
 </ul>
 
@@ -422,6 +462,7 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="statistical-analysis-and-reporting">
 <h1>Statistical Analysis and Reporting<a class="headerlink" href="#statistical-analysis-and-reporting" title="Permalink to this headline">#</a></h1>
 <p>A <a class="reference external" href="https://jupyterbook.org/en/stable/intro.html">Jupyter Book</a> to help you find and run statistical tests in both R and Python.</p>
+<p>Using your data, find the test you want to run (proportion, assumption, distribution, effect, etc.) and which language you want to run this test in. The code snippet provided with each test is just an example, Code recipes only get one so far. Please do not blindly throw code snippets at every problem you encounter. In reality, there’s sometimes more to be done.</p>
 <section id="tests-of-proportion-index">
 <h2>Tests of Proportion Index<a class="headerlink" href="#tests-of-proportion-index" title="Permalink to this headline">#</a></h2>
 <table class="colwidths-auto table">
@@ -566,35 +607,144 @@ title="Print to PDF"
 </tbody>
 </table>
 </section>
-<section id="full-table-of-contents">
-<h2>Full Table of Contents<a class="headerlink" href="#full-table-of-contents" title="Permalink to this headline">#</a></h2>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">One Sample Tests of Proportion</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="content/01-proportions/one-sample-tests-r.html">One Sample Tests of Proportion - R</a></li>
-<li class="toctree-l1"><a class="reference internal" href="content/01-proportions/one-sample-tests-py.html">One Sample Tests of Proportion - Python</a></li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Two Sample Tests of Proportion</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="content/01-proportions/two-sample-tests-r.html">Two Sample Tests of Proportion - R</a></li>
-<li class="toctree-l1"><a class="reference internal" href="content/01-proportions/two-sample-tests-py.html">Two Sample Tests of Proportion - Python</a></li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">ANOVA Assumptions</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="content/02-assumptions-and-distributions/anova-r.html">ANOVA Assumptions - R</a></li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Distributions</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="content/02-assumptions-and-distributions/distributions-r.html">Distributions - R</a></li>
-</ul>
-</div>
+<section id="parametric-tests-of-effect-index">
+<h2>Parametric Tests of Effect Index<a class="headerlink" href="#parametric-tests-of-effect-index" title="Permalink to this headline">#</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Samples</p></th>
+<th class="head"><p>Levels</p></th>
+<th class="head"><p>Between or Within Subjects</p></th>
+<th class="head"><p>Test in R</p></th>
+<th class="head"><p>Test in Python</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>Between</p></td>
+<td><p><a class="reference external" href="./content/03-parametric/one-factor-tests-r.html#independent-samples-t-test">Independent-Samples <em>t</em>-test</a></p></td>
+<td><p><a class="reference external" href="./content/03-parametric/one-factor-tests-py.html#independent-samples-t-test">Independent-Samples <em>t</em>-test</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>Within</p></td>
+<td><p><a class="reference external" href="./content/03-parametric/one-factor-tests-r.html#paired-samples-t-test">Paired-Samples <em>t</em>-test</a></p></td>
+<td><p><a class="reference external" href="./content/03-parametric/one-factor-tests-py.html#paired-samples-t-test">Paired-Samples <em>t</em>-test</a></p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>≥2</p></td>
+<td><p>Between</p></td>
+<td><p><a class="reference external" href="./content/03-parametric/one-factor-tests-r.html#one-way-anova">One-Way ANOVA</a></p></td>
+<td><p><a class="reference external" href="./content/03-parametric/one-factor-tests-py.html#one-way-anova">One-Way ANOVA</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>≥2</p></td>
+<td><p>Within</p></td>
+<td><p><a class="reference external" href="./content/03-parametric/one-factor-tests-r.html#one-way-repeated-measures-anova">One-Way Repeated Measures ANOVA</a></p></td>
+<td><p><a class="reference external" href="./content/03-parametric/one-factor-tests-py.html#one-way-repeated-measures-anova">One-Way Repeated Measures ANOVA</a></p></td>
+</tr>
+<tr class="row-even"><td><p>≥2</p></td>
+<td><p>≥2</p></td>
+<td><p>Between</p></td>
+<td><p><a class="reference external" href="./content/03-parametric/multiple-factor-tests-r.html#factorial-anova">Factorial ANOVA</a></p></td>
+<td><p><a class="reference external" href="./content/03-parametric/multiple-factor-tests-py.html#factorial-anova">Factorial ANOVA</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>≥2</p></td>
+<td><p>≥2</p></td>
+<td><p>Between</p></td>
+<td><p><a class="reference external" href="./content/03-parametric/multiple-factor-tests-r.html#linear-model-lm">Linear Model (LM)</a></p></td>
+<td><p><a class="reference external" href="./content/03-parametric/multiple-factor-tests-py.html#linear-model-lm">Linear Model (LM)</a></p></td>
+</tr>
+<tr class="row-even"><td><p>≥2</p></td>
+<td><p>≥2</p></td>
+<td><p>Within</p></td>
+<td><p><a class="reference external" href="./content/03-parametric/multiple-factor-tests-r.html#factorial-repeated-measures-anova">Factorial Repeated Measures ANOVA</a></p></td>
+<td><p><a class="reference external" href="./content/03-parametric/multiple-factor-tests-py.html#factorial-repeated-measures-anova">Factorial Repeated Measures ANOVA</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>≥2</p></td>
+<td><p>≥2</p></td>
+<td><p>Within</p></td>
+<td><p><a class="reference external" href="./content/03-parametric/multiple-factor-tests-r.html#linear-mixed-model-lmm">Linear Mixed Model (LMM)</a></p></td>
+<td><p><a class="reference external" href="./content/03-parametric/multiple-factor-tests-py.html#linear-mixed-model-lmm">Linear Mixed Model (LMM)</a></p></td>
+</tr>
+</tbody>
+</table>
 </section>
+<section id="nonparametric-tests-of-effect-index">
+<h2>Nonparametric Tests of Effect Index<a class="headerlink" href="#nonparametric-tests-of-effect-index" title="Permalink to this headline">#</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Samples</p></th>
+<th class="head"><p>Levels</p></th>
+<th class="head"><p>Between or Within Subjects</p></th>
+<th class="head"><p>Test in R</p></th>
+<th class="head"><p>Test in Python</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>Between</p></td>
+<td><p><a class="reference external" href="./content/04-nonparametric/one-factor-tests-r.html#mann-whitney-u-test">Mann-Whitney <em>U</em> test</a></p></td>
+<td><p><a class="reference external" href="./content/04-nonparametric/one-factor-tests-py.html#mann-whitney-u-test">Mann-Whitney <em>U</em> test</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>Within</p></td>
+<td><p><a class="reference external" href="./content/04-nonparametric/one-factor-tests-r.html#wilcoxon-signed-rank-test">Wilcoxon Signed-Rank Test</a></p></td>
+<td><p><a class="reference external" href="./content/04-nonparametric/one-factor-tests-py.html#wilcoxon-signed-rank-test">Wilcoxon Signed-Rank Test</a></p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>≥2</p></td>
+<td><p>Between</p></td>
+<td><p><a class="reference external" href="./content/04-nonparametric/one-factor-tests-r.html#kruskal-wallis-test">Kruskal-Wallis Test</a></p></td>
+<td><p><a class="reference external" href="./content/04-nonparametric/one-factor-tests-py.html#kruskal-wallis-test">Kruskal-Wallis Test</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>≥2</p></td>
+<td><p>Within</p></td>
+<td><p><a class="reference external" href="./content/04-nonparametric/one-factor-tests-r.html#friedman-test">Friedman Test</a></p></td>
+<td><p><a class="reference external" href="./content/04-nonparametric/one-factor-tests-py.html#friedman-test">Friedman Test</a></p></td>
+</tr>
+<tr class="row-even"><td><p>≥2</p></td>
+<td><p>≥2</p></td>
+<td><p>Between</p></td>
+<td><p><a class="reference external" href="./content/04-nonparametric/multiple-factor-tests-r.html#aligned-rank-transform-for-between-subjects-art">Aligned Rank Transform for Between Subjects (ART)</a></p></td>
+<td><p><a class="reference external" href="./content/04-nonparametric/multiple-factor-tests-py.html#aligned-rank-transform-for-between-subjects-art">Aligned Rank Transform for Between Subjects (ART)</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>≥2</p></td>
+<td><p>≥2</p></td>
+<td><p>Between</p></td>
+<td><p><span class="xref myst">Generalized Linear Model (GLM)</span></p></td>
+<td><p><span class="xref myst">Generalized Linear Model (GLM)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>≥2</p></td>
+<td><p>≥2</p></td>
+<td><p>Within</p></td>
+<td><p><a class="reference external" href="./content/04-nonparametric/multiple-factor-tests-r.html#aligned-rank-transform-for-within-subjects-art">Aligned Rank Transform for Within Subjects (ART)</a></p></td>
+<td><p><a class="reference external" href="./content/04-nonparametric/multiple-factor-tests-py.html#aligned-rank-transform-for-within-subjects-art">Aligned Rank Transform for Within Subjects (ART)</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>≥2</p></td>
+<td><p>≥2</p></td>
+<td><p>Within</p></td>
+<td><p><span class="xref myst">Generalized Linear Mixed Model (GLMM)</span></p></td>
+<td><p><span class="xref myst">Generalized Linear Mixed Model (GLMM)</span></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">

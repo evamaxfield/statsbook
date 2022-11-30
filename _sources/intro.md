@@ -2,6 +2,8 @@
 
 A [Jupyter Book](https://jupyterbook.org/en/stable/intro.html) to help you find and run statistical tests in both R and Python.
 
+Using your data, find the test you want to run (proportion, assumption, distribution, effect, etc.) and which language you want to run this test in. The code snippet provided with each test is just an example, Code recipes only get one so far. Please do not blindly throw code snippets at every problem you encounter. In reality, there's sometimes more to be done.
+
 ## Tests of Proportion Index
 
 | Samples | Response Categories | N    | Test in R                                                                                                                 | Test in Python                                                                                                             |
@@ -36,8 +38,28 @@ A [Jupyter Book](https://jupyterbook.org/en/stable/intro.html) to help you find 
 | Exponential | rate (λ): `rate` | [KS Test for Exponential Distribution](./content/02-assumptions-and-distributions/distributions-r.html#exponential-distribution) | [KS Test for Exponential Distribution](./content/02-assumptions-and-distributions/distributions-py.html#exponential-distribution) |
 | Gamma | shape (α): `shape`, rate (β): `rate` | [KS Test for Gamma Distribution](./content/02-assumptions-and-distributions/distributions-r.html#gamma-distribution) | [KS Test for Gamma Distribution](./content/02-assumptions-and-distributions/distributions-py.html#gamma-distribution) |
 
+## Parametric Tests of Effect Index
 
-## Full Table of Contents
+| Samples | Levels | Between or Within Subjects | Test in R                                                                                                  | Test in Python                                                                                              |
+|---------|--------|----------------------------|------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| 1       | 2      | Between                    | [Independent-Samples _t_-test](./content/03-parametric/one-factor-tests-r.html#independent-samples-t-test) | [Independent-Samples _t_-test](./content/03-parametric/one-factor-tests-py.html#independent-samples-t-test) |
+| 1       | 2      | Within                     | [Paired-Samples _t_-test](./content/03-parametric/one-factor-tests-r.html#paired-samples-t-test)           | [Paired-Samples _t_-test](./content/03-parametric/one-factor-tests-py.html#paired-samples-t-test)           |
+| 1       | ≥2      | Between                     | [One-Way ANOVA](./content/03-parametric/one-factor-tests-r.html#one-way-anova)           | [One-Way ANOVA](./content/03-parametric/one-factor-tests-py.html#one-way-anova)           |
+| 1       | ≥2      | Within                     | [One-Way Repeated Measures ANOVA](./content/03-parametric/one-factor-tests-r.html#one-way-repeated-measures-anova)           | [One-Way Repeated Measures ANOVA](./content/03-parametric/one-factor-tests-py.html#one-way-repeated-measures-anova)           |
+| ≥2       | ≥2      | Between                     | [Factorial ANOVA](./content/03-parametric/multiple-factor-tests-r.html#factorial-anova)           | [Factorial ANOVA](./content/03-parametric/multiple-factor-tests-py.html#factorial-anova)           |
+| ≥2       | ≥2      | Between                     | [Linear Model (LM)](./content/03-parametric/multiple-factor-tests-r.html#linear-model-lm)           | [Linear Model (LM)](./content/03-parametric/multiple-factor-tests-py.html#linear-model-lm)           |
+| ≥2       | ≥2      | Within                     | [Factorial Repeated Measures ANOVA](./content/03-parametric/multiple-factor-tests-r.html#factorial-repeated-measures-anova)           | [Factorial Repeated Measures ANOVA](./content/03-parametric/multiple-factor-tests-py.html#factorial-repeated-measures-anova)           |
+| ≥2       | ≥2      | Within                     | [Linear Mixed Model (LMM)](./content/03-parametric/multiple-factor-tests-r.html#linear-mixed-model-lmm)           | [Linear Mixed Model (LMM)](./content/03-parametric/multiple-factor-tests-py.html#linear-mixed-model-lmm)           |
 
-```{tableofcontents}
-```
+## Nonparametric Tests of Effect Index
+
+| Samples | Levels | Between or Within Subjects | Test in R                                                                                                  | Test in Python                                                                                              |
+|---------|--------|----------------------------|------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| 1       | 2      | Between                    | [Mann-Whitney _U_ test](./content/04-nonparametric/one-factor-tests-r.html#mann-whitney-u-test) | [Mann-Whitney _U_ test](./content/04-nonparametric/one-factor-tests-py.html#mann-whitney-u-test) |
+| 1       | 2      | Within                    | [Wilcoxon Signed-Rank Test](./content/04-nonparametric/one-factor-tests-r.html#wilcoxon-signed-rank-test) | [Wilcoxon Signed-Rank Test](./content/04-nonparametric/one-factor-tests-py.html#wilcoxon-signed-rank-test) |
+| 1       | ≥2      | Between                    | [Kruskal-Wallis Test](./content/04-nonparametric/one-factor-tests-r.html#kruskal-wallis-test) | [Kruskal-Wallis Test](./content/04-nonparametric/one-factor-tests-py.html#kruskal-wallis-test) |
+| 1       | ≥2      | Within                    | [Friedman Test](./content/04-nonparametric/one-factor-tests-r.html#friedman-test) | [Friedman Test](./content/04-nonparametric/one-factor-tests-py.html#friedman-test) |
+| ≥2       | ≥2      | Between                    | [Aligned Rank Transform for Between Subjects (ART)](./content/04-nonparametric/multiple-factor-tests-r.html#aligned-rank-transform-for-between-subjects-art) | [Aligned Rank Transform for Between Subjects (ART)](./content/04-nonparametric/multiple-factor-tests-py.html#aligned-rank-transform-for-between-subjects-art) |
+| ≥2       | ≥2      | Between                    | [Generalized Linear Model (GLM)]() | [Generalized Linear Model (GLM)]() |
+| ≥2       | ≥2      | Within                    | [Aligned Rank Transform for Within Subjects (ART)](./content/04-nonparametric/multiple-factor-tests-r.html#aligned-rank-transform-for-within-subjects-art) | [Aligned Rank Transform for Within Subjects (ART)](./content/04-nonparametric/multiple-factor-tests-py.html#aligned-rank-transform-for-within-subjects-art) |
+| ≥2       | ≥2      | Within                    | [Generalized Linear Mixed Model (GLMM)]() | [Generalized Linear Mixed Model (GLMM)]() |

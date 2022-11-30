@@ -1,0 +1,1208 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Multiple Factor Parametric Tests - R &#8212; Statistical Analysis and Reporting</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="One Factor Nonparametric Tests - R" href="../04-nonparametric/one-factor-tests-r.html" />
+    <link rel="prev" title="One Factor Parametric Tests - R" href="one-factor-tests-r.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Statistical Analysis and Reporting</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Statistical Analysis and Reporting
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  One Sample Tests of Proportion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-proportions/one-sample-tests-r.html">
+   One Sample Tests of Proportion - R
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-proportions/one-sample-tests-py.html">
+   One Sample Tests of Proportion - Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Two Sample Tests of Proportion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-proportions/two-sample-tests-r.html">
+   Two Sample Tests of Proportion - R
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-proportions/two-sample-tests-py.html">
+   Two Sample Tests of Proportion - Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  ANOVA Assumptions
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-assumptions-and-distributions/anova-r.html">
+   ANOVA Assumptions - R
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Distributions
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-assumptions-and-distributions/distributions-r.html">
+   Distributions - R
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Parametric Tests
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="one-factor-tests-r.html">
+   One Factor Parametric Tests - R
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Multiple Factor Parametric Tests - R
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Nonparametric Tests
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-nonparametric/one-factor-tests-r.html">
+   One Factor Nonparametric Tests - R
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-nonparametric/multiple-factor-tests-r.html">
+   Multiple Factor Nonparametric Tests - R
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/evamaxfield/statsbook/main?urlpath=lab/tree/content/03-parametric/multiple-factor-tests-r.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/evamaxfield/statsbook"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/evamaxfield/statsbook/issues/new?title=Issue%20on%20page%20%2Fcontent/03-parametric/multiple-factor-tests-r.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/content/03-parametric/multiple-factor-tests-r.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#factorial-anova">
+   Factorial ANOVA
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-model-lm">
+   Linear Model (LM)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#factorial-repeated-measures-anova">
+   Factorial Repeated Measures ANOVA
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-mixed-model-lmm">
+   Linear Mixed Model (LMM)
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Multiple Factor Parametric Tests - R</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#factorial-anova">
+   Factorial ANOVA
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-model-lm">
+   Linear Model (LM)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#factorial-repeated-measures-anova">
+   Factorial Repeated Measures ANOVA
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-mixed-model-lmm">
+   Linear Mixed Model (LMM)
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="multiple-factor-parametric-tests-r">
+<h1>Multiple Factor Parametric Tests - R<a class="headerlink" href="#multiple-factor-parametric-tests-r" title="Permalink to this headline">#</a></h1>
+<section id="factorial-anova">
+<h2>Factorial ANOVA<a class="headerlink" href="#factorial-anova" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>Samples:</strong> <code class="docutils literal notranslate"><span class="pre">≥2</span></code></p></li>
+<li><p><strong>Levels:</strong> <code class="docutils literal notranslate"><span class="pre">≥2</span></code></p></li>
+<li><p><strong>Between or Within Subjects:</strong> Between</p></li>
+<li><p><strong>Reporting:</strong> “Figure 8 shows an interaction plot with ±1 standard deviation error bars for X1 and X2. A factorial ANOVA indicated a statistically significant effect on Y of X1 (F(1, 56) = 9.35, p &lt; .01) and X2 (F(1, 56) = 4.30, p &lt; .05), but not of the X1×X2 interaction (F(1, 56) = 0.42, n.s.).”</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example data</span>
+<span class="c1"># df has subjects (S), two between-Ss factors (X1,X2) each w/levels (a,b), and continuous response (Y)</span>
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;data/2F2LBs.csv&quot;</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="m">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 20 × 4</caption>
+<thead>
+	<tr><th></th><th scope=col>S</th><th scope=col>X1</th><th scope=col>X2</th><th scope=col>Y</th></tr>
+	<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td> 1</td><td>a</td><td>a</td><td> 9.939918</td></tr>
+	<tr><th scope=row>2</th><td> 2</td><td>a</td><td>b</td><td>12.271865</td></tr>
+	<tr><th scope=row>3</th><td> 3</td><td>b</td><td>a</td><td>11.062279</td></tr>
+	<tr><th scope=row>4</th><td> 4</td><td>b</td><td>b</td><td>12.763591</td></tr>
+	<tr><th scope=row>5</th><td> 5</td><td>a</td><td>a</td><td> 7.980861</td></tr>
+	<tr><th scope=row>6</th><td> 6</td><td>a</td><td>b</td><td>10.468626</td></tr>
+	<tr><th scope=row>7</th><td> 7</td><td>b</td><td>a</td><td>21.071315</td></tr>
+	<tr><th scope=row>8</th><td> 8</td><td>b</td><td>b</td><td>15.270048</td></tr>
+	<tr><th scope=row>9</th><td> 9</td><td>a</td><td>a</td><td>22.125037</td></tr>
+	<tr><th scope=row>10</th><td>10</td><td>a</td><td>b</td><td>10.955709</td></tr>
+	<tr><th scope=row>11</th><td>11</td><td>b</td><td>a</td><td>14.496724</td></tr>
+	<tr><th scope=row>12</th><td>12</td><td>b</td><td>b</td><td>12.731080</td></tr>
+	<tr><th scope=row>13</th><td>13</td><td>a</td><td>a</td><td>14.110583</td></tr>
+	<tr><th scope=row>14</th><td>14</td><td>a</td><td>b</td><td>13.587539</td></tr>
+	<tr><th scope=row>15</th><td>15</td><td>b</td><td>a</td><td>13.175990</td></tr>
+	<tr><th scope=row>16</th><td>16</td><td>b</td><td>b</td><td>14.313530</td></tr>
+	<tr><th scope=row>17</th><td>17</td><td>a</td><td>a</td><td>11.595727</td></tr>
+	<tr><th scope=row>18</th><td>18</td><td>a</td><td>b</td><td>13.723466</td></tr>
+	<tr><th scope=row>19</th><td>19</td><td>b</td><td>a</td><td>17.276898</td></tr>
+	<tr><th scope=row>20</th><td>20</td><td>b</td><td>b</td><td>14.945042</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">ez</span><span class="p">)</span> <span class="c1"># for ezANOVA</span>
+
+<span class="n">df</span><span class="o">$</span><span class="n">S</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">S</span><span class="p">)</span> <span class="c1"># Subject id is nominal</span>
+<span class="n">df</span><span class="o">$</span><span class="n">X1</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">X1</span><span class="p">)</span> <span class="c1"># X1 is a 2-level factor</span>
+<span class="n">df</span><span class="o">$</span><span class="n">X2</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">X2</span><span class="p">)</span> <span class="c1"># X2 is a 2-level factor</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="nf">ezANOVA</span><span class="p">(</span><span class="n">dv</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span> <span class="n">between</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span><span class="n">X2</span><span class="p">),</span> <span class="n">wid</span><span class="o">=</span><span class="n">S</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="m">3</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span> <span class="c1"># use c() for &gt;1 factors</span>
+<span class="n">m</span><span class="o">$</span><span class="n">Levene</span> <span class="c1"># if p&lt;.05, we have a violation of homoscedasticity, so use a White-adjusted ANOVA</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coefficient covariances computed by hccm()
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 1 × 7</caption>
+<thead>
+	<tr><th scope=col>DFn</th><th scope=col>DFd</th><th scope=col>SSn</th><th scope=col>SSd</th><th scope=col>F</th><th scope=col>p</th><th scope=col>p&lt;.05</th></tr>
+	<tr><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>3</td><td>56</td><td>36.93165</td><td>149.7687</td><td>4.603036</td><td>0.005989026</td><td>*</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">=</span> <span class="nf">ezANOVA</span><span class="p">(</span><span class="n">dv</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span> <span class="n">between</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span><span class="n">X2</span><span class="p">),</span> <span class="n">wid</span><span class="o">=</span><span class="n">S</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="m">3</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">white.adjust</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span> <span class="c1"># heteroscedastic</span>
+<span class="n">m</span><span class="o">$</span><span class="n">ANOVA</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coefficient covariances computed by hccm()
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 3 × 6</caption>
+<thead>
+	<tr><th></th><th scope=col>Effect</th><th scope=col>DFn</th><th scope=col>DFd</th><th scope=col>F</th><th scope=col>p</th><th scope=col>p&lt;.05</th></tr>
+	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>2</th><td>X1   </td><td>1</td><td>56</td><td>8.7309193</td><td>0.004569383</td><td>*</td></tr>
+	<tr><th scope=row>3</th><td>X2   </td><td>1</td><td>56</td><td>4.0094897</td><td>0.050096183</td><td> </td></tr>
+	<tr><th scope=row>4</th><td>X1:X2</td><td>1</td><td>56</td><td>0.3876081</td><td>0.536086422</td><td> </td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># the following also performs the same factorial ANOVA</span>
+<span class="n">m</span> <span class="o">=</span> <span class="nf">aov</span><span class="p">(</span><span class="n">Y</span> <span class="o">~</span> <span class="n">X1</span><span class="o">*</span><span class="n">X2</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="nf">anova</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A anova: 4 × 5</caption>
+<thead>
+	<tr><th></th><th scope=col>Df</th><th scope=col>Sum Sq</th><th scope=col>Mean Sq</th><th scope=col>F value</th><th scope=col>Pr(&gt;F)</th></tr>
+	<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>X1</th><td> 1</td><td> 60.039468</td><td>60.039468</td><td>9.3545564</td><td>0.003408605</td></tr>
+	<tr><th scope=row>X2</th><td> 1</td><td> 27.571854</td><td>27.571854</td><td>4.2958818</td><td>0.042819437</td></tr>
+	<tr><th scope=row>X1:X2</th><td> 1</td><td>  2.665445</td><td> 2.665445</td><td>0.4152944</td><td>0.521925508</td></tr>
+	<tr><th scope=row>Residuals</th><td>56</td><td>359.419527</td><td> 6.418206</td><td>       NA</td><td>         NA</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">ggthemes</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">scales</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">plyr</span><span class="p">)</span>
+
+<span class="c1"># Interaction plot</span>
+<span class="c1"># http://www.sthda.com/english/wiki/ggplot2-line-plot-quick-start-guide-r-software-and-data-visualization</span>
+<span class="c1"># http://www.sthda.com/english/wiki/ggplot2-error-bars-quick-start-guide-r-software-and-data-visualization</span>
+<span class="c1"># http://www.sthda.com/english/wiki/ggplot2-point-shapes</span>
+<span class="c1"># http://www.sthda.com/english/wiki/ggplot2-line-types-how-to-change-line-types-of-a-graph-in-r-software</span>
+<span class="n">df2</span> <span class="o">&lt;-</span> <span class="nf">ddply</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="o">~</span> <span class="n">X1</span><span class="o">*</span><span class="n">X2</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="c1"># make a summary data table</span>
+  <span class="nf">c</span><span class="p">(</span><span class="nf">NROW</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">),</span>
+    <span class="nf">sum</span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">)),</span>
+    <span class="nf">sum</span><span class="p">(</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">)),</span>
+    <span class="nf">mean</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
+    <span class="nf">sd</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
+    <span class="nf">median</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
+    <span class="nf">IQR</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)))</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;X1&quot;</span><span class="p">,</span><span class="s">&quot;X2&quot;</span><span class="p">,</span><span class="s">&quot;Rows&quot;</span><span class="p">,</span><span class="s">&quot;NAs&quot;</span><span class="p">,</span><span class="s">&quot;NotNAs&quot;</span><span class="p">,</span><span class="s">&quot;Mean&quot;</span><span class="p">,</span><span class="s">&quot;SD&quot;</span><span class="p">,</span><span class="s">&quot;Median&quot;</span><span class="p">,</span><span class="s">&quot;IQR&quot;</span><span class="p">)</span>
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df2</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">Mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">X2</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">X2</span><span class="p">))</span> <span class="o">+</span> <span class="nf">theme_minimal</span><span class="p">()</span> <span class="o">+</span> 
+  <span class="c1"># set the font styles for the plot title and axis titles</span>
+  <span class="nf">theme</span><span class="p">(</span><span class="n">plot.title</span>   <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;bold&quot;</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">18</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">0</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.title.x</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;bold&quot;</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">16</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">0</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.title.y</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;bold&quot;</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">16</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">90</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="c1"># set the font styles for the value labels that show on each axis</span>
+  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.text.x</span>  <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;plain&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">14</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">0</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.text.y</span>  <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;plain&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">12</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">0</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="c1"># set the font styles for the legend</span>
+  <span class="nf">theme</span><span class="p">(</span><span class="n">legend.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;bold&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">14</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">0</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">theme</span><span class="p">(</span><span class="n">legend.text</span>  <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;plain&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">14</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">0</span><span class="p">))</span> <span class="o">+</span>
+  <span class="c1"># create the plot lines, points, and error bars</span>
+  <span class="nf">geom_line</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">linetype</span><span class="o">=</span><span class="n">X2</span><span class="p">),</span> <span class="n">position</span><span class="o">=</span><span class="nf">position_dodge</span><span class="p">(</span><span class="m">0.05</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">X2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">X2</span><span class="p">),</span> <span class="n">position</span><span class="o">=</span><span class="nf">position_dodge</span><span class="p">(</span><span class="m">0.05</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">geom_errorbar</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">ymin</span><span class="o">=</span><span class="n">Mean</span><span class="o">-</span><span class="n">SD</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">Mean</span><span class="o">+</span><span class="n">SD</span><span class="p">),</span> <span class="n">position</span><span class="o">=</span><span class="nf">position_dodge</span><span class="p">(</span><span class="m">0.05</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="m">0.1</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="c1"># place text labels on each bar</span>
+  <span class="nf">geom_text</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;%.2f (±%.2f)&quot;</span><span class="p">,</span> <span class="n">Mean</span><span class="p">,</span> <span class="n">SD</span><span class="p">)),</span> <span class="n">position</span><span class="o">=</span><span class="nf">position_dodge</span><span class="p">(</span><span class="m">0.05</span><span class="p">),</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">-1.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">3.5</span><span class="p">)</span> <span class="o">+</span>
+  <span class="c1"># set the labels for the title and each axis</span>
+  <span class="nf">labs</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;Y by X1, X2&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s">&quot;X1&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s">&quot;Y&quot;</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="c1"># set the ranges and value labels for each axis</span>
+  <span class="nf">scale_x_discrete</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">scale_y_continuous</span><span class="p">(</span><span class="n">breaks</span><span class="o">=</span><span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="m">5</span><span class="p">),</span> <span class="n">labels</span><span class="o">=</span><span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="m">5</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">20</span><span class="p">),</span> <span class="n">oob</span><span class="o">=</span><span class="n">rescale_none</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="c1"># set the name, labels, and colors for the traces</span>
+  <span class="nf">scale_color_manual</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;X2&quot;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">),</span> <span class="n">values</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;red&quot;</span><span class="p">,</span> <span class="s">&quot;blue&quot;</span><span class="p">))</span> <span class="o">+</span>
+  <span class="c1"># set the size and shape of the points</span>
+  <span class="nf">scale_size_manual</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">4</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">scale_shape_manual</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">16</span><span class="p">,</span><span class="m">10</span><span class="p">))</span> <span class="o">+</span>
+  <span class="c1"># set the linetype of the lines</span>
+  <span class="nf">scale_linetype_manual</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;solid&quot;</span><span class="p">,</span> <span class="s">&quot;longdash&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/multiple-factor-tests-r_6_0.png" src="../../_images/multiple-factor-tests-r_6_0.png" />
+</div>
+</div>
+</section>
+<section id="linear-model-lm">
+<h2>Linear Model (LM)<a class="headerlink" href="#linear-model-lm" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>Samples:</strong> <code class="docutils literal notranslate"><span class="pre">≥2</span></code></p></li>
+<li><p><strong>Levels:</strong> <code class="docutils literal notranslate"><span class="pre">≥2</span></code></p></li>
+<li><p><strong>Between or Within Subjects:</strong> Between</p></li>
+<li><p><strong>Reporting:</strong> “Figure 8 shows an interaction plot with ±1 standard deviation error bars for X1 and X2. An analysis of variance indicated a statistically significant effect on Y of X1 (F(1, 56) = 9.35, p &lt; .01) and X2 (F(1, 56) = 4.30, p &lt; .05), but not of the X1×X2 interaction (F(1, 56) = 0.42, n.s.).”</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example data</span>
+<span class="c1"># df has subjects (S), two between-Ss factors (X1,X2) each w/levels (a,b), and continuous response (Y)</span>
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;data/2F2LBs.csv&quot;</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="m">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 20 × 4</caption>
+<thead>
+	<tr><th></th><th scope=col>S</th><th scope=col>X1</th><th scope=col>X2</th><th scope=col>Y</th></tr>
+	<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td> 1</td><td>a</td><td>a</td><td> 9.939918</td></tr>
+	<tr><th scope=row>2</th><td> 2</td><td>a</td><td>b</td><td>12.271865</td></tr>
+	<tr><th scope=row>3</th><td> 3</td><td>b</td><td>a</td><td>11.062279</td></tr>
+	<tr><th scope=row>4</th><td> 4</td><td>b</td><td>b</td><td>12.763591</td></tr>
+	<tr><th scope=row>5</th><td> 5</td><td>a</td><td>a</td><td> 7.980861</td></tr>
+	<tr><th scope=row>6</th><td> 6</td><td>a</td><td>b</td><td>10.468626</td></tr>
+	<tr><th scope=row>7</th><td> 7</td><td>b</td><td>a</td><td>21.071315</td></tr>
+	<tr><th scope=row>8</th><td> 8</td><td>b</td><td>b</td><td>15.270048</td></tr>
+	<tr><th scope=row>9</th><td> 9</td><td>a</td><td>a</td><td>22.125037</td></tr>
+	<tr><th scope=row>10</th><td>10</td><td>a</td><td>b</td><td>10.955709</td></tr>
+	<tr><th scope=row>11</th><td>11</td><td>b</td><td>a</td><td>14.496724</td></tr>
+	<tr><th scope=row>12</th><td>12</td><td>b</td><td>b</td><td>12.731080</td></tr>
+	<tr><th scope=row>13</th><td>13</td><td>a</td><td>a</td><td>14.110583</td></tr>
+	<tr><th scope=row>14</th><td>14</td><td>a</td><td>b</td><td>13.587539</td></tr>
+	<tr><th scope=row>15</th><td>15</td><td>b</td><td>a</td><td>13.175990</td></tr>
+	<tr><th scope=row>16</th><td>16</td><td>b</td><td>b</td><td>14.313530</td></tr>
+	<tr><th scope=row>17</th><td>17</td><td>a</td><td>a</td><td>11.595727</td></tr>
+	<tr><th scope=row>18</th><td>18</td><td>a</td><td>b</td><td>13.723466</td></tr>
+	<tr><th scope=row>19</th><td>19</td><td>b</td><td>a</td><td>17.276898</td></tr>
+	<tr><th scope=row>20</th><td>20</td><td>b</td><td>b</td><td>14.945042</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">$</span><span class="n">S</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">S</span><span class="p">)</span> <span class="c1"># Subject id is nominal (unused)</span>
+<span class="n">df</span><span class="o">$</span><span class="n">X1</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">X1</span><span class="p">)</span> <span class="c1"># X1 is a 2-level factor</span>
+<span class="n">df</span><span class="o">$</span><span class="n">X2</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">X2</span><span class="p">)</span> <span class="c1"># X2 is a 2-level factor</span>
+<span class="n">m</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">Y</span> <span class="o">~</span> <span class="n">X1</span><span class="o">*</span><span class="n">X2</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="nf">anova</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A anova: 4 × 5</caption>
+<thead>
+	<tr><th></th><th scope=col>Df</th><th scope=col>Sum Sq</th><th scope=col>Mean Sq</th><th scope=col>F value</th><th scope=col>Pr(&gt;F)</th></tr>
+	<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>X1</th><td> 1</td><td> 60.039468</td><td>60.039468</td><td>9.3545564</td><td>0.003408605</td></tr>
+	<tr><th scope=row>X2</th><td> 1</td><td> 27.571854</td><td>27.571854</td><td>4.2958818</td><td>0.042819437</td></tr>
+	<tr><th scope=row>X1:X2</th><td> 1</td><td>  2.665445</td><td> 2.665445</td><td>0.4152944</td><td>0.521925508</td></tr>
+	<tr><th scope=row>Residuals</th><td>56</td><td>359.419527</td><td> 6.418206</td><td>       NA</td><td>         NA</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">ggthemes</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">scales</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">plyr</span><span class="p">)</span>
+
+<span class="c1"># Interaction plot</span>
+<span class="c1"># http://www.sthda.com/english/wiki/ggplot2-line-plot-quick-start-guide-r-software-and-data-visualization</span>
+<span class="c1"># http://www.sthda.com/english/wiki/ggplot2-error-bars-quick-start-guide-r-software-and-data-visualization</span>
+<span class="c1"># http://www.sthda.com/english/wiki/ggplot2-point-shapes</span>
+<span class="c1"># http://www.sthda.com/english/wiki/ggplot2-line-types-how-to-change-line-types-of-a-graph-in-r-software</span>
+<span class="n">df2</span> <span class="o">&lt;-</span> <span class="nf">ddply</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="o">~</span> <span class="n">X1</span><span class="o">*</span><span class="n">X2</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="c1"># make a summary data table</span>
+  <span class="nf">c</span><span class="p">(</span><span class="nf">NROW</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">),</span>
+    <span class="nf">sum</span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">)),</span>
+    <span class="nf">sum</span><span class="p">(</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">)),</span>
+    <span class="nf">mean</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
+    <span class="nf">sd</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
+    <span class="nf">median</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
+    <span class="nf">IQR</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)))</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;X1&quot;</span><span class="p">,</span><span class="s">&quot;X2&quot;</span><span class="p">,</span><span class="s">&quot;Rows&quot;</span><span class="p">,</span><span class="s">&quot;NAs&quot;</span><span class="p">,</span><span class="s">&quot;NotNAs&quot;</span><span class="p">,</span><span class="s">&quot;Mean&quot;</span><span class="p">,</span><span class="s">&quot;SD&quot;</span><span class="p">,</span><span class="s">&quot;Median&quot;</span><span class="p">,</span><span class="s">&quot;IQR&quot;</span><span class="p">)</span>
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df2</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">Mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">X2</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">X2</span><span class="p">))</span> <span class="o">+</span> <span class="nf">theme_minimal</span><span class="p">()</span> <span class="o">+</span> 
+  <span class="c1"># set the font styles for the plot title and axis titles</span>
+  <span class="nf">theme</span><span class="p">(</span><span class="n">plot.title</span>   <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;bold&quot;</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">18</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">0</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.title.x</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;bold&quot;</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">16</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">0</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.title.y</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;bold&quot;</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">16</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">90</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="c1"># set the font styles for the value labels that show on each axis</span>
+  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.text.x</span>  <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;plain&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">14</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">0</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.text.y</span>  <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;plain&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">12</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">0</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="c1"># set the font styles for the legend</span>
+  <span class="nf">theme</span><span class="p">(</span><span class="n">legend.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;bold&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">14</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">0</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">theme</span><span class="p">(</span><span class="n">legend.text</span>  <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;plain&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">14</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">0</span><span class="p">))</span> <span class="o">+</span>
+  <span class="c1"># create the plot lines, points, and error bars</span>
+  <span class="nf">geom_line</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">linetype</span><span class="o">=</span><span class="n">X2</span><span class="p">),</span> <span class="n">position</span><span class="o">=</span><span class="nf">position_dodge</span><span class="p">(</span><span class="m">0.05</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">X2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">X2</span><span class="p">),</span> <span class="n">position</span><span class="o">=</span><span class="nf">position_dodge</span><span class="p">(</span><span class="m">0.05</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">geom_errorbar</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">ymin</span><span class="o">=</span><span class="n">Mean</span><span class="o">-</span><span class="n">SD</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">Mean</span><span class="o">+</span><span class="n">SD</span><span class="p">),</span> <span class="n">position</span><span class="o">=</span><span class="nf">position_dodge</span><span class="p">(</span><span class="m">0.05</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="m">0.1</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="c1"># place text labels on each bar</span>
+  <span class="nf">geom_text</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;%.2f (±%.2f)&quot;</span><span class="p">,</span> <span class="n">Mean</span><span class="p">,</span> <span class="n">SD</span><span class="p">)),</span> <span class="n">position</span><span class="o">=</span><span class="nf">position_dodge</span><span class="p">(</span><span class="m">0.05</span><span class="p">),</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">-1.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">3.5</span><span class="p">)</span> <span class="o">+</span>
+  <span class="c1"># set the labels for the title and each axis</span>
+  <span class="nf">labs</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;Y by X1, X2&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s">&quot;X1&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s">&quot;Y&quot;</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="c1"># set the ranges and value labels for each axis</span>
+  <span class="nf">scale_x_discrete</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">scale_y_continuous</span><span class="p">(</span><span class="n">breaks</span><span class="o">=</span><span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="m">5</span><span class="p">),</span> <span class="n">labels</span><span class="o">=</span><span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="m">5</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">20</span><span class="p">),</span> <span class="n">oob</span><span class="o">=</span><span class="n">rescale_none</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="c1"># set the name, labels, and colors for the traces</span>
+  <span class="nf">scale_color_manual</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;X2&quot;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">),</span> <span class="n">values</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;red&quot;</span><span class="p">,</span> <span class="s">&quot;blue&quot;</span><span class="p">))</span> <span class="o">+</span>
+  <span class="c1"># set the size and shape of the points</span>
+  <span class="nf">scale_size_manual</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">4</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">scale_shape_manual</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">16</span><span class="p">,</span><span class="m">10</span><span class="p">))</span> <span class="o">+</span>
+  <span class="c1"># set the linetype of the lines</span>
+  <span class="nf">scale_linetype_manual</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;solid&quot;</span><span class="p">,</span> <span class="s">&quot;longdash&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/multiple-factor-tests-r_10_0.png" src="../../_images/multiple-factor-tests-r_10_0.png" />
+</div>
+</div>
+</section>
+<section id="factorial-repeated-measures-anova">
+<h2>Factorial Repeated Measures ANOVA<a class="headerlink" href="#factorial-repeated-measures-anova" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>Samples:</strong> <code class="docutils literal notranslate"><span class="pre">≥2</span></code></p></li>
+<li><p><strong>Levels:</strong> <code class="docutils literal notranslate"><span class="pre">≥2</span></code></p></li>
+<li><p><strong>Between or Within Subjects:</strong> Within</p></li>
+<li><p><strong>Reporting:</strong> “Figure 9 shows an interaction plot with ±1 standard deviation error bars for X1 and X2. A factorial repeated measures ANOVA indicated a statistically significant effect on Y of X1 (F(1, 14) = 5.45, p &lt; .05), but not of X2 (F(1, 14) = 0.18, n.s.), or of the X1×X2 interaction (F(1, 14) = 0.12, n.s.).”</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example data</span>
+<span class="c1"># df has subjects (S), two within-Ss factors (X1,X2) each w/levels (a,b), and continuous response (Y)</span>
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;data/2F2LWs.csv&quot;</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="m">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 20 × 4</caption>
+<thead>
+	<tr><th></th><th scope=col>S</th><th scope=col>X1</th><th scope=col>X2</th><th scope=col>Y</th></tr>
+	<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>1</td><td>a</td><td>a</td><td>11.4749213</td></tr>
+	<tr><th scope=row>2</th><td>1</td><td>a</td><td>b</td><td>14.8431021</td></tr>
+	<tr><th scope=row>3</th><td>1</td><td>b</td><td>a</td><td> 0.1430649</td></tr>
+	<tr><th scope=row>4</th><td>1</td><td>b</td><td>b</td><td>15.0210806</td></tr>
+	<tr><th scope=row>5</th><td>2</td><td>a</td><td>a</td><td>16.9487115</td></tr>
+	<tr><th scope=row>6</th><td>2</td><td>a</td><td>b</td><td>12.9088880</td></tr>
+	<tr><th scope=row>7</th><td>2</td><td>b</td><td>a</td><td> 7.3433619</td></tr>
+	<tr><th scope=row>8</th><td>2</td><td>b</td><td>b</td><td>11.1885220</td></tr>
+	<tr><th scope=row>9</th><td>3</td><td>a</td><td>a</td><td>12.3397073</td></tr>
+	<tr><th scope=row>10</th><td>3</td><td>a</td><td>b</td><td>14.8390688</td></tr>
+	<tr><th scope=row>11</th><td>3</td><td>b</td><td>a</td><td>21.5131754</td></tr>
+	<tr><th scope=row>12</th><td>3</td><td>b</td><td>b</td><td> 0.2390247</td></tr>
+	<tr><th scope=row>13</th><td>4</td><td>a</td><td>a</td><td>11.7081257</td></tr>
+	<tr><th scope=row>14</th><td>4</td><td>a</td><td>b</td><td>13.8740498</td></tr>
+	<tr><th scope=row>15</th><td>4</td><td>b</td><td>a</td><td> 4.3615137</td></tr>
+	<tr><th scope=row>16</th><td>4</td><td>b</td><td>b</td><td> 2.3686943</td></tr>
+	<tr><th scope=row>17</th><td>5</td><td>a</td><td>a</td><td>15.3668561</td></tr>
+	<tr><th scope=row>18</th><td>5</td><td>a</td><td>b</td><td>13.6340391</td></tr>
+	<tr><th scope=row>19</th><td>5</td><td>b</td><td>a</td><td> 4.9401806</td></tr>
+	<tr><th scope=row>20</th><td>5</td><td>b</td><td>b</td><td>13.5781464</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">ez</span><span class="p">)</span> <span class="c1"># for ezANOVA</span>
+
+<span class="n">df</span><span class="o">$</span><span class="n">S</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">S</span><span class="p">)</span> <span class="c1"># Subject id is nominal</span>
+<span class="n">df</span><span class="o">$</span><span class="n">X1</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">X1</span><span class="p">)</span> <span class="c1"># X1 is a 2-level factor</span>
+<span class="n">df</span><span class="o">$</span><span class="n">X2</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">X2</span><span class="p">)</span> <span class="c1"># X2 is a 2-level factor</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="nf">ezANOVA</span><span class="p">(</span><span class="n">dv</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span> <span class="n">within</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span><span class="n">X2</span><span class="p">),</span> <span class="n">wid</span><span class="o">=</span><span class="n">S</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="m">3</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span> <span class="c1"># use c() for &gt;1 factors</span>
+<span class="n">m</span><span class="o">$</span><span class="n">Mauchly</span> <span class="c1"># p&lt;.05 indicates a sphericity violation</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NULL
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">$</span><span class="n">ANOVA</span> <span class="c1"># use if no violation</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 3 × 7</caption>
+<thead>
+	<tr><th></th><th scope=col>Effect</th><th scope=col>DFn</th><th scope=col>DFd</th><th scope=col>F</th><th scope=col>p</th><th scope=col>p&lt;.05</th><th scope=col>ges</th></tr>
+	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>2</th><td>X1   </td><td>1</td><td>14</td><td>5.4537088</td><td>0.03492658</td><td>*</td><td>0.070392015</td></tr>
+	<tr><th scope=row>3</th><td>X2   </td><td>1</td><td>14</td><td>0.1797949</td><td>0.67799256</td><td> </td><td>0.003762924</td></tr>
+	<tr><th scope=row>4</th><td>X1:X2</td><td>1</td><td>14</td><td>0.1223175</td><td>0.73173975</td><td> </td><td>0.002019078</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># if there is a sphericity violation, report the Greenhouse-Geisser or Huynh-Feldt correction</span>
+<span class="n">p</span> <span class="o">=</span> <span class="nf">match</span><span class="p">(</span><span class="n">m</span><span class="o">$</span><span class="n">Sphericity</span><span class="o">$</span><span class="n">Effect</span><span class="p">,</span> <span class="n">m</span><span class="o">$</span><span class="n">ANOVA</span><span class="o">$</span><span class="n">Effect</span><span class="p">)</span> <span class="c1"># positions of within-Ss effects in m$ANOVA</span>
+<span class="n">m</span><span class="o">$</span><span class="n">Sphericity</span><span class="o">$</span><span class="n">GGe.DFn</span> <span class="o">=</span> <span class="n">m</span><span class="o">$</span><span class="n">Sphericity</span><span class="o">$</span><span class="n">GGe</span> <span class="o">*</span> <span class="n">m</span><span class="o">$</span><span class="n">ANOVA</span><span class="o">$</span><span class="n">DFn</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="c1"># Greenhouse-Geisser DFs</span>
+<span class="n">m</span><span class="o">$</span><span class="n">Sphericity</span><span class="o">$</span><span class="n">GGe.DFd</span> <span class="o">=</span> <span class="n">m</span><span class="o">$</span><span class="n">Sphericity</span><span class="o">$</span><span class="n">GGe</span> <span class="o">*</span> <span class="n">m</span><span class="o">$</span><span class="n">ANOVA</span><span class="o">$</span><span class="n">DFd</span><span class="p">[</span><span class="n">p</span><span class="p">]</span>
+<span class="n">m</span><span class="o">$</span><span class="n">Sphericity</span><span class="o">$</span><span class="n">HFe.DFn</span> <span class="o">=</span> <span class="n">m</span><span class="o">$</span><span class="n">Sphericity</span><span class="o">$</span><span class="n">HFe</span> <span class="o">*</span> <span class="n">m</span><span class="o">$</span><span class="n">ANOVA</span><span class="o">$</span><span class="n">DFn</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="c1"># Huynh-Feldt DFs</span>
+<span class="n">m</span><span class="o">$</span><span class="n">Sphericity</span><span class="o">$</span><span class="n">HFe.DFd</span> <span class="o">=</span> <span class="n">m</span><span class="o">$</span><span class="n">Sphericity</span><span class="o">$</span><span class="n">HFe</span> <span class="o">*</span> <span class="n">m</span><span class="o">$</span><span class="n">ANOVA</span><span class="o">$</span><span class="n">DFd</span><span class="p">[</span><span class="n">p</span><span class="p">]</span>
+<span class="n">m</span><span class="o">$</span><span class="n">Sphericity</span> <span class="c1"># show results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><dl>
+	<dt>$GGe.DFn</dt>
+		<dd></dd>
+	<dt>$GGe.DFd</dt>
+		<dd></dd>
+	<dt>$HFe.DFn</dt>
+		<dd></dd>
+	<dt>$HFe.DFd</dt>
+		<dd></dd>
+</dl>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># the following also performs the equivalent repeated measures ANOVA, but does not address sphericity</span>
+<span class="n">m</span> <span class="o">=</span> <span class="nf">aov</span><span class="p">(</span><span class="n">Y</span> <span class="o">~</span> <span class="n">X1</span><span class="o">*</span><span class="n">X2</span> <span class="o">+</span> <span class="nf">Error</span><span class="p">(</span><span class="n">S</span><span class="o">/</span><span class="p">(</span><span class="n">X1</span><span class="o">*</span><span class="n">X2</span><span class="p">)),</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error: S
+          Df Sum Sq Mean Sq F value Pr(&gt;F)
+Residuals 14  592.5   42.32               
+
+Error: S:X1
+          Df Sum Sq Mean Sq F value Pr(&gt;F)  
+X1         1  160.3  160.28   5.454 0.0349 *
+Residuals 14  411.4   29.39                 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Error: S:X2
+          Df Sum Sq Mean Sq F value Pr(&gt;F)
+X2         1    8.0    8.00    0.18  0.678
+Residuals 14  622.5   44.47               
+
+Error: S:X1:X2
+          Df Sum Sq Mean Sq F value Pr(&gt;F)
+X1:X2      1    4.3    4.28   0.122  0.732
+Residuals 14  490.1   35.01               
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Interaction plot</span>
+<span class="c1"># http://www.sthda.com/english/wiki/ggplot2-line-plot-quick-start-guide-r-software-and-data-visualization</span>
+<span class="c1"># http://www.sthda.com/english/wiki/ggplot2-error-bars-quick-start-guide-r-software-and-data-visualization</span>
+<span class="c1"># http://www.sthda.com/english/wiki/ggplot2-point-shapes</span>
+<span class="c1"># http://www.sthda.com/english/wiki/ggplot2-line-types-how-to-change-line-types-of-a-graph-in-r-software</span>
+<span class="n">df2</span> <span class="o">&lt;-</span> <span class="nf">ddply</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="o">~</span> <span class="n">X1</span><span class="o">*</span><span class="n">X2</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="c1"># make a summary data table</span>
+  <span class="nf">c</span><span class="p">(</span><span class="nf">NROW</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">),</span>
+    <span class="nf">sum</span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">)),</span>
+    <span class="nf">sum</span><span class="p">(</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">)),</span>
+    <span class="nf">mean</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
+    <span class="nf">sd</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
+    <span class="nf">median</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
+    <span class="nf">IQR</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)))</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;X1&quot;</span><span class="p">,</span><span class="s">&quot;X2&quot;</span><span class="p">,</span><span class="s">&quot;Rows&quot;</span><span class="p">,</span><span class="s">&quot;NAs&quot;</span><span class="p">,</span><span class="s">&quot;NotNAs&quot;</span><span class="p">,</span><span class="s">&quot;Mean&quot;</span><span class="p">,</span><span class="s">&quot;SD&quot;</span><span class="p">,</span><span class="s">&quot;Median&quot;</span><span class="p">,</span><span class="s">&quot;IQR&quot;</span><span class="p">)</span>
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df2</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">Mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">X2</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">X2</span><span class="p">))</span> <span class="o">+</span> <span class="nf">theme_minimal</span><span class="p">()</span> <span class="o">+</span> 
+  <span class="c1"># set the font styles for the plot title and axis titles</span>
+  <span class="nf">theme</span><span class="p">(</span><span class="n">plot.title</span>   <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;bold&quot;</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">18</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">0</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.title.x</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;bold&quot;</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">16</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">0</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.title.y</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;bold&quot;</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">16</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">90</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="c1"># set the font styles for the value labels that show on each axis</span>
+  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.text.x</span>  <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;plain&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">14</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">0</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.text.y</span>  <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;plain&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">12</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">0</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="c1"># set the font styles for the legend</span>
+  <span class="nf">theme</span><span class="p">(</span><span class="n">legend.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;bold&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">14</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">0</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">theme</span><span class="p">(</span><span class="n">legend.text</span>  <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;plain&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">14</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">0</span><span class="p">))</span> <span class="o">+</span>
+  <span class="c1"># create the plot lines, points, and error bars</span>
+  <span class="nf">geom_line</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">linetype</span><span class="o">=</span><span class="n">X2</span><span class="p">),</span> <span class="n">position</span><span class="o">=</span><span class="nf">position_dodge</span><span class="p">(</span><span class="m">0.05</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">X2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">X2</span><span class="p">),</span> <span class="n">position</span><span class="o">=</span><span class="nf">position_dodge</span><span class="p">(</span><span class="m">0.05</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">geom_errorbar</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">ymin</span><span class="o">=</span><span class="n">Mean</span><span class="o">-</span><span class="n">SD</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">Mean</span><span class="o">+</span><span class="n">SD</span><span class="p">),</span> <span class="n">position</span><span class="o">=</span><span class="nf">position_dodge</span><span class="p">(</span><span class="m">0.05</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="m">0.1</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="c1"># place text labels on each bar</span>
+  <span class="nf">geom_text</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;%.2f (±%.2f)&quot;</span><span class="p">,</span> <span class="n">Mean</span><span class="p">,</span> <span class="n">SD</span><span class="p">)),</span> <span class="n">position</span><span class="o">=</span><span class="nf">position_dodge</span><span class="p">(</span><span class="m">0.05</span><span class="p">),</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">-1.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">3.5</span><span class="p">)</span> <span class="o">+</span>
+  <span class="c1"># set the labels for the title and each axis</span>
+  <span class="nf">labs</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;Y by X1, X2&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s">&quot;X1&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s">&quot;Y&quot;</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="c1"># set the ranges and value labels for each axis</span>
+  <span class="nf">scale_x_discrete</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">scale_y_continuous</span><span class="p">(</span><span class="n">breaks</span><span class="o">=</span><span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="m">5</span><span class="p">),</span> <span class="n">labels</span><span class="o">=</span><span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="m">5</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">20</span><span class="p">),</span> <span class="n">oob</span><span class="o">=</span><span class="n">rescale_none</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="c1"># set the name, labels, and colors for the traces</span>
+  <span class="nf">scale_color_manual</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;X2&quot;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">),</span> <span class="n">values</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;red&quot;</span><span class="p">,</span> <span class="s">&quot;blue&quot;</span><span class="p">))</span> <span class="o">+</span>
+  <span class="c1"># set the size and shape of the points</span>
+  <span class="nf">scale_size_manual</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">4</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">scale_shape_manual</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">16</span><span class="p">,</span><span class="m">10</span><span class="p">))</span> <span class="o">+</span>
+  <span class="c1"># set the linetype of the lines</span>
+  <span class="nf">scale_linetype_manual</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;solid&quot;</span><span class="p">,</span> <span class="s">&quot;longdash&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/multiple-factor-tests-r_17_0.png" src="../../_images/multiple-factor-tests-r_17_0.png" />
+</div>
+</div>
+</section>
+<section id="linear-mixed-model-lmm">
+<h2>Linear Mixed Model (LMM)<a class="headerlink" href="#linear-mixed-model-lmm" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>Samples:</strong> <code class="docutils literal notranslate"><span class="pre">≥2</span></code></p></li>
+<li><p><strong>Levels:</strong> <code class="docutils literal notranslate"><span class="pre">≥2</span></code></p></li>
+<li><p><strong>Between or Within Subjects:</strong> Within</p></li>
+<li><p><strong>Reporting:</strong> “Figure 9 shows an interaction plot with ±1 standard deviation error bars for X1 and X2. A linear mixed model analysis of variance indicated a statistically significant effect on Y of X1 (F(1, 42) = 4.42, p &lt; .05), but not of X2 (F(1, 42) = 0.22, n.s.), or of the X1×X2 interaction (F(1, 42) = 0.12, n.s.).”</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example data</span>
+<span class="c1"># df has subjects (S), two within-Ss factors (X1,X2) each w/levels (a,b), and continuous response (Y)</span>
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;data/2F2LWs.csv&quot;</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="m">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 20 × 4</caption>
+<thead>
+	<tr><th></th><th scope=col>S</th><th scope=col>X1</th><th scope=col>X2</th><th scope=col>Y</th></tr>
+	<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>1</td><td>a</td><td>a</td><td>11.4749213</td></tr>
+	<tr><th scope=row>2</th><td>1</td><td>a</td><td>b</td><td>14.8431021</td></tr>
+	<tr><th scope=row>3</th><td>1</td><td>b</td><td>a</td><td> 0.1430649</td></tr>
+	<tr><th scope=row>4</th><td>1</td><td>b</td><td>b</td><td>15.0210806</td></tr>
+	<tr><th scope=row>5</th><td>2</td><td>a</td><td>a</td><td>16.9487115</td></tr>
+	<tr><th scope=row>6</th><td>2</td><td>a</td><td>b</td><td>12.9088880</td></tr>
+	<tr><th scope=row>7</th><td>2</td><td>b</td><td>a</td><td> 7.3433619</td></tr>
+	<tr><th scope=row>8</th><td>2</td><td>b</td><td>b</td><td>11.1885220</td></tr>
+	<tr><th scope=row>9</th><td>3</td><td>a</td><td>a</td><td>12.3397073</td></tr>
+	<tr><th scope=row>10</th><td>3</td><td>a</td><td>b</td><td>14.8390688</td></tr>
+	<tr><th scope=row>11</th><td>3</td><td>b</td><td>a</td><td>21.5131754</td></tr>
+	<tr><th scope=row>12</th><td>3</td><td>b</td><td>b</td><td> 0.2390247</td></tr>
+	<tr><th scope=row>13</th><td>4</td><td>a</td><td>a</td><td>11.7081257</td></tr>
+	<tr><th scope=row>14</th><td>4</td><td>a</td><td>b</td><td>13.8740498</td></tr>
+	<tr><th scope=row>15</th><td>4</td><td>b</td><td>a</td><td> 4.3615137</td></tr>
+	<tr><th scope=row>16</th><td>4</td><td>b</td><td>b</td><td> 2.3686943</td></tr>
+	<tr><th scope=row>17</th><td>5</td><td>a</td><td>a</td><td>15.3668561</td></tr>
+	<tr><th scope=row>18</th><td>5</td><td>a</td><td>b</td><td>13.6340391</td></tr>
+	<tr><th scope=row>19</th><td>5</td><td>b</td><td>a</td><td> 4.9401806</td></tr>
+	<tr><th scope=row>20</th><td>5</td><td>b</td><td>b</td><td>13.5781464</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">lme4</span><span class="p">)</span> <span class="c1"># for lmer</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">car</span><span class="p">)</span> <span class="c1"># for Anova</span>
+<span class="n">df</span><span class="o">$</span><span class="n">S</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">S</span><span class="p">)</span> <span class="c1"># Subject id is nominal</span>
+<span class="n">df</span><span class="o">$</span><span class="n">X1</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">X1</span><span class="p">)</span> <span class="c1"># X1 is a 2-level factor</span>
+<span class="n">df</span><span class="o">$</span><span class="n">X2</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">X2</span><span class="p">)</span> <span class="c1"># X2 is a 2-level factor</span>
+<span class="nf">contrasts</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">X1</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="s">&quot;contr.sum&quot;</span>
+<span class="nf">contrasts</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">X2</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="s">&quot;contr.sum&quot;</span>
+<span class="n">m</span> <span class="o">=</span> <span class="nf">lmer</span><span class="p">(</span><span class="n">Y</span> <span class="o">~</span> <span class="n">X1</span><span class="o">*</span><span class="n">X2</span> <span class="o">+</span> <span class="p">(</span><span class="m">1</span><span class="o">|</span><span class="n">S</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="nf">Anova</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="m">3</span><span class="p">,</span> <span class="n">test.statistic</span><span class="o">=</span><span class="s">&quot;F&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading required package: Matrix
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading required package: carData
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A anova: 4 × 4</caption>
+<thead>
+	<tr><th></th><th scope=col>F</th><th scope=col>Df</th><th scope=col>Df.res</th><th scope=col>Pr(&gt;F)</th></tr>
+	<tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>(Intercept)</th><td>148.4297541</td><td>1</td><td>14</td><td>7.698544e-09</td></tr>
+	<tr><th scope=row>X1</th><td>  4.4167657</td><td>1</td><td>42</td><td>4.162596e-02</td></tr>
+	<tr><th scope=row>X2</th><td>  0.2203147</td><td>1</td><td>42</td><td>6.412279e-01</td></tr>
+	<tr><th scope=row>X1:X2</th><td>  0.1180081</td><td>1</td><td>42</td><td>7.329188e-01</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Interaction plot</span>
+<span class="c1"># http://www.sthda.com/english/wiki/ggplot2-line-plot-quick-start-guide-r-software-and-data-visualization</span>
+<span class="c1"># http://www.sthda.com/english/wiki/ggplot2-error-bars-quick-start-guide-r-software-and-data-visualization</span>
+<span class="c1"># http://www.sthda.com/english/wiki/ggplot2-point-shapes</span>
+<span class="c1"># http://www.sthda.com/english/wiki/ggplot2-line-types-how-to-change-line-types-of-a-graph-in-r-software</span>
+<span class="n">df2</span> <span class="o">&lt;-</span> <span class="nf">ddply</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="o">~</span> <span class="n">X1</span><span class="o">*</span><span class="n">X2</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="c1"># make a summary data table</span>
+  <span class="nf">c</span><span class="p">(</span><span class="nf">NROW</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">),</span>
+    <span class="nf">sum</span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">)),</span>
+    <span class="nf">sum</span><span class="p">(</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">)),</span>
+    <span class="nf">mean</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
+    <span class="nf">sd</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
+    <span class="nf">median</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
+    <span class="nf">IQR</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">Y</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)))</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;X1&quot;</span><span class="p">,</span><span class="s">&quot;X2&quot;</span><span class="p">,</span><span class="s">&quot;Rows&quot;</span><span class="p">,</span><span class="s">&quot;NAs&quot;</span><span class="p">,</span><span class="s">&quot;NotNAs&quot;</span><span class="p">,</span><span class="s">&quot;Mean&quot;</span><span class="p">,</span><span class="s">&quot;SD&quot;</span><span class="p">,</span><span class="s">&quot;Median&quot;</span><span class="p">,</span><span class="s">&quot;IQR&quot;</span><span class="p">)</span>
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df2</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">Mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">X2</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">X2</span><span class="p">))</span> <span class="o">+</span> <span class="nf">theme_minimal</span><span class="p">()</span> <span class="o">+</span> 
+  <span class="c1"># set the font styles for the plot title and axis titles</span>
+  <span class="nf">theme</span><span class="p">(</span><span class="n">plot.title</span>   <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;bold&quot;</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">18</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">0</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.title.x</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;bold&quot;</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">16</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">0</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.title.y</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;bold&quot;</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">16</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">90</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="c1"># set the font styles for the value labels that show on each axis</span>
+  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.text.x</span>  <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;plain&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">14</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">0</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.text.y</span>  <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;plain&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">12</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">0</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="c1"># set the font styles for the legend</span>
+  <span class="nf">theme</span><span class="p">(</span><span class="n">legend.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;bold&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">14</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">0</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">theme</span><span class="p">(</span><span class="n">legend.text</span>  <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="o">=</span><span class="s">&quot;plain&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">14</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">0</span><span class="p">))</span> <span class="o">+</span>
+  <span class="c1"># create the plot lines, points, and error bars</span>
+  <span class="nf">geom_line</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">linetype</span><span class="o">=</span><span class="n">X2</span><span class="p">),</span> <span class="n">position</span><span class="o">=</span><span class="nf">position_dodge</span><span class="p">(</span><span class="m">0.05</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">X2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">X2</span><span class="p">),</span> <span class="n">position</span><span class="o">=</span><span class="nf">position_dodge</span><span class="p">(</span><span class="m">0.05</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">geom_errorbar</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">ymin</span><span class="o">=</span><span class="n">Mean</span><span class="o">-</span><span class="n">SD</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">Mean</span><span class="o">+</span><span class="n">SD</span><span class="p">),</span> <span class="n">position</span><span class="o">=</span><span class="nf">position_dodge</span><span class="p">(</span><span class="m">0.05</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="m">0.1</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="c1"># place text labels on each bar</span>
+  <span class="nf">geom_text</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;%.2f (±%.2f)&quot;</span><span class="p">,</span> <span class="n">Mean</span><span class="p">,</span> <span class="n">SD</span><span class="p">)),</span> <span class="n">position</span><span class="o">=</span><span class="nf">position_dodge</span><span class="p">(</span><span class="m">0.05</span><span class="p">),</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0.0</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">-1.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">3.5</span><span class="p">)</span> <span class="o">+</span>
+  <span class="c1"># set the labels for the title and each axis</span>
+  <span class="nf">labs</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;Y by X1, X2&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s">&quot;X1&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s">&quot;Y&quot;</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="c1"># set the ranges and value labels for each axis</span>
+  <span class="nf">scale_x_discrete</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">scale_y_continuous</span><span class="p">(</span><span class="n">breaks</span><span class="o">=</span><span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="m">5</span><span class="p">),</span> <span class="n">labels</span><span class="o">=</span><span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="m">5</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">20</span><span class="p">),</span> <span class="n">oob</span><span class="o">=</span><span class="n">rescale_none</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="c1"># set the name, labels, and colors for the traces</span>
+  <span class="nf">scale_color_manual</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;X2&quot;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">),</span> <span class="n">values</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;red&quot;</span><span class="p">,</span> <span class="s">&quot;blue&quot;</span><span class="p">))</span> <span class="o">+</span>
+  <span class="c1"># set the size and shape of the points</span>
+  <span class="nf">scale_size_manual</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">4</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">scale_shape_manual</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">16</span><span class="p">,</span><span class="m">10</span><span class="p">))</span> <span class="o">+</span>
+  <span class="c1"># set the linetype of the lines</span>
+  <span class="nf">scale_linetype_manual</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;solid&quot;</span><span class="p">,</span> <span class="s">&quot;longdash&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/multiple-factor-tests-r_21_0.png" src="../../_images/multiple-factor-tests-r_21_0.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./content/03-parametric"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="one-factor-tests-r.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">One Factor Parametric Tests - R</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../04-nonparametric/one-factor-tests-r.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">One Factor Nonparametric Tests - R</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Eva Maxfield Brown and Jacob O. Wobbrock<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
