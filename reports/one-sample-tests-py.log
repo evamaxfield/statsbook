@@ -35,7 +35,7 @@ multinomial.pmf(xt.values, len(df), np.full(n_cat, 1/n_cat))
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn [4], line 6[0m
+Cell [0;32mIn[4], line 6[0m
 [1;32m      4[0m counts [38;5;241m=[39m df[[38;5;124m"[39m[38;5;124mY[39m[38;5;124m"[39m][38;5;241m.[39mvalue_counts()
 [1;32m      5[0m n_cat [38;5;241m=[39m df[[38;5;124m"[39m[38;5;124mY[39m[38;5;124m"[39m][38;5;241m.[39mnunique()
 [0;32m----> 6[0m multinomial[38;5;241m.[39mpmf([43mxt[49m[38;5;241m.[39mvalues, [38;5;28mlen[39m(df), np[38;5;241m.[39mfull(n_cat, [38;5;241m1[39m[38;5;241m/[39mn_cat))
