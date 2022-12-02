@@ -26,3 +26,6 @@ parts:
   chapters:
   - file: content/04-nonparametric/one-factor-tests-r.ipynb
   - file: content/04-nonparametric/multiple-factor-tests-r.ipynb
+- caption: Generalized Linear (Mixed) Models
+  chapters:
+  - file: content/05-glm/glm-bs-r.ipynb
