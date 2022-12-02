@@ -23,6 +23,7 @@ dependencies:
   - conda-forge::r-ez
   - conda-forge::r-fitdistrplus
   - conda-forge::r-coin
+  - conda-forge::r-pscl
   # Extras
   - conda-forge::just
   - pip:
